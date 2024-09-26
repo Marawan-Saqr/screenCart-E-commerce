@@ -4,6 +4,7 @@ import Auth from './Pages/Auth/Auth';
 import Login from './Pages/Auth/Login/Login';
 import Register from './Pages/Auth/Register/Register';
 import Website from './Pages/Website/Website';
+import Home from './Pages/Website/Home/Home';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
 
           {/* Website Component */}
           <Route path="website" element={<Website />}>
-
+            <Route path="home" element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -2,6 +2,7 @@ import "./Topbar.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from 'react-router-dom';
 
 const Topbar = () => {
   return (
@@ -10,7 +11,8 @@ const Topbar = () => {
         <Navbar.Toggle aria-controls="navbarScroll" className="ms-auto" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-            <Nav.Link>Home</Nav.Link>
+            <Link className="nav-link" to={"home"}>Home</Link>
+            <Nav.Link>All Products</Nav.Link>
             <Nav.Link>Laptops</Nav.Link>
             <Nav.Link>Smartphones</Nav.Link>
             <Nav.Link>Cameras</Nav.Link>
