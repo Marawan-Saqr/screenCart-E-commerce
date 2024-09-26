@@ -7,7 +7,7 @@
   list-style-type: none;
   padding: 0px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   margin: 3px 0px;
   font-size: 13px;
 }
@@ -33,6 +33,21 @@
   -ms-transition: 0.5s;
   -o-transition: 0.5s;
   cursor: pointer;
+}
+
+.contact-bar .left ul li {
+  margin-right: 10px;
+}
+
+.contact-bar .right ul {
+  justify-content: space-evenly;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .contact-bar .right ul {
+    justify-content: flex-start;
+  }
+  
 }
 
 @media (max-width: 767px) {

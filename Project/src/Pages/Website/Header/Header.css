@@ -1,0 +1,109 @@
+.header {
+  padding: 20px 0;
+  background-color: #15161D;
+  color: white;
+  border-bottom: 4px solid #D10024;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .header .row {
+    justify-content: center;
+  }
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .header .left h1 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) and (max-width: 991px) {
+  .header .left h1 {
+    text-align: center;
+  }
+}
+
+.header .mid {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .header .mid {
+    margin: 20px 0px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .header .mid {
+    margin: 20px 0px;
+  }
+}
+
+.header .mid select {
+  background-color: #20232A;
+  color: white;
+  border: 1px solid #444;
+  padding: 5px 14px;
+  border-radius: 5px;
+}
+
+.header .mid input {
+  padding: 5px 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #20232A;
+  color: white;
+}
+
+.header .mid button {
+  padding: 5px 15px;
+  background-color: #D10024;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.header .mid button:hover {
+  background-color: #880017;
+}
+
+.header .mid .form-control, .form-select {
+  background-color: #20232A;
+  color: white;
+}
+
+.header .mid .form-select:focus, .form-control:focus {
+  box-shadow: none;
+  border-color: #0069D9;
+}
+
+.header .end {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 767px) {
+  .header .end {
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .header .end {
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+    margin-top: 20px;
+  }
+}
