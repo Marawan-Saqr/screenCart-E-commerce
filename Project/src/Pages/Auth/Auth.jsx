@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import React, { useEffect } from 'react';
 
 const Auth = () => {
   return (

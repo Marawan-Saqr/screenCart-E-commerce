@@ -26,28 +26,101 @@
       "password": "hello4059493Kha"
     },
     {
-      "id": "b684"
-    },
-    {
-      "id": "417d"
-    },
-    {
-      "id": "5a70"
-    },
-    {
-      "id": "0d05",
+      "id": "6",
       "name": "Mohmed Hussien",
       "password": "12345"
     },
     {
-      "id": "1eb4",
+      "id": "7",
       "name": "Yassmina ",
       "password": "12345"
     },
     {
-      "id": "eccb",
+      "id": "8",
       "name": "Yosra",
       "password": "12345"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "laptop hp 2010",
+      "details": "Small And Speed Laptop",
+      "price": 130,
+      "category": "laptops",
+      "rate": 4
+    },
+    {
+      "id": 2,
+      "name": "laptop hp 2014",
+      "details": "Very Speed Laptop",
+      "price": 270,
+      "category": "laptops",
+      "rate": 2
+    },
+    {
+      "id": 3,
+      "name": "Headset Colorize",
+      "details": "Rgba Colors And Beautifull Lights",
+      "price": 50,
+      "category": "headsets",
+      "rate": 5
+    },
+    {
+      "id": 4,
+      "name": "keyboard rgba red dragon",
+      "details": "rgba colors",
+      "price": 70,
+      "category": "accessories",
+      "rate": 5
+    },
+    {
+      "id": 5,
+      "name": "camera superFrame 360",
+      "details": "Super Shot And Quality Photos",
+      "price": 390,
+      "category": "cameras",
+      "rate": 5
+    },
+    {
+      "id": 6,
+      "name": "iphone 5",
+      "details": "Small Phone And Quality Control Of Anything",
+      "price": 90,
+      "category": "smartphones",
+      "rate": 5
+    },
+    {
+      "id": 7,
+      "name": "screen HP Curve",
+      "details": "curve screens with beautifull colors",
+      "price": 120,
+      "category": "computers",
+      "rate": 1
+    },
+    {
+      "id": 8,
+      "name": "smasung 2022",
+      "details": "Speed And Medium Quality",
+      "price": 80,
+      "category": "smartphones",
+      "rate": 4
+    },
+    {
+      "id": 9,
+      "name": "Mic For Pc",
+      "details": "Used In Pc And Good Quality Sound",
+      "price": 80,
+      "category": "accessories",
+      "rate": 2
+    },
+    {
+      "id": 10,
+      "name": "asus laptop",
+      "details": "Small And Speed Laptop",
+      "price": 150,
+      "category": "laptops",
+      "rate": 1
     }
   ]
 }

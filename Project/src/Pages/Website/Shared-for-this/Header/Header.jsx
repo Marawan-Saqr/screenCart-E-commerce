@@ -1,4 +1,5 @@
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -28,7 +29,9 @@ const Header = () => {
                 <h6>Your Wishlist</h6>
               </div>
               <div className='buy-icons'>
-                <i className="fa-solid fa-cart-shopping"></i>
+                <Link style={{color: '#fff'}} to={"cart"}>
+                  <i className="fa-solid fa-cart-shopping"></i>
+                </Link>
                 <h6>Your Cart</h6>
               </div>
             </div>
