@@ -40,16 +40,6 @@
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.all-products .add button {
-  background-color: #d10024;
-  color: #fff;
-  border: none;
-  padding: 6px 11px;
-  border-radius: 21px;
-  font-size: 17px;
-  text-transform: uppercase;
-}
-
 .all-products .box:hover .add {
   transform: translateY(0);
   opacity: 1;

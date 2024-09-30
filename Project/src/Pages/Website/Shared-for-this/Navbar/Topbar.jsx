@@ -12,7 +12,7 @@ const Topbar = () => {
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" navbarScroll>
             <Link className="nav-link" to={"home"}>Home</Link>
-            <Link className="nav-link" to={"all-products"}>All Products</Link>
+            <Link className="nav-link" to={"products-page"}>All Products</Link>
             <Nav.Link>Laptops</Nav.Link>
             <Nav.Link>Computers</Nav.Link>
             <Nav.Link>Smartphones</Nav.Link>

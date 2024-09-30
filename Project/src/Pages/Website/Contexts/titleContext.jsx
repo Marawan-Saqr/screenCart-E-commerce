@@ -1,10 +1,7 @@
-// TitleContext.js
 import React, { createContext, useContext } from 'react';
+
 const TitleContext = createContext();
-
-export const TitleProvider = ({ children }) => {
-  const title = "All Products";
-
+export const TitleProvider = ({ children, title }) => {
   return (
     <TitleContext.Provider value={title}>
       {children}

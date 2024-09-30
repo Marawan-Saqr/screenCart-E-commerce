@@ -1,0 +1,91 @@
+.ad-banner {
+  background-image: url('./ad-banner.webp');
+  background-size: cover;
+  background-position: center;
+  height: 75vh;
+  display: flex;
+  padding: 60px 0;
+}
+
+.ad-timer ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.ad-timer ul li {
+  text-align: center;
+  margin: 0 10px;
+  background-color: #d10024;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ad-timer ul li h3 {
+  font-size: 2rem;
+  margin: 0;
+  color: #fff;
+}
+
+.ad-timer ul li span {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.content h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.shop-now-button {
+  background-color: #ff6f61;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.shop-now-button:hover {
+  background-color: #e65a50;
+}
+
+@media (max-width: 768px) {
+  .ad-banner {
+    height: 50vh;
+    padding: 30px 0;
+  }
+
+  .ad-timer ul {
+    flex-direction: column;
+  }
+
+  .content h2 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1.2rem;
+  }
+}

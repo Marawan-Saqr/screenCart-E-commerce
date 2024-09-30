@@ -5,8 +5,9 @@ import Login from './Pages/Auth/Login/Login';
 import Register from './Pages/Auth/Register/Register';
 import Website from './Pages/Website/Website';
 import Home from './Pages/Website/Home/Home';
-import AllProducts from './Pages/Website/All-products/AllProducts';
+import ProductsPage from './Pages/Website/Products-page/ProductsPage.jsx';
 import Cart from './Pages/Website/Shared-for-this/Header/Cart/Cart.jsx';
+import CartProvider from './Pages/Website/Contexts/cartContext.js';
 
 function App() {
   return (
@@ -21,11 +22,11 @@ function App() {
           </Route>
 
           {/* Website Component */}
-          <Route path="website" element={<Website />}>
+          <Route path="website" element={<CartProvider><Website /></CartProvider>}>
             <Route path="cart" element={<Cart />} />
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
-            <Route path="all-products" element={<AllProducts />} />
+            <Route path="products-page" element={<ProductsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
