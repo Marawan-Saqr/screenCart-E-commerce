@@ -1,5 +1,6 @@
 import './Header.css';
 import { Link } from 'react-router-dom';
+import component from '../../../../Shared/Styled-components/StyledComponents';
 
 const Header = () => {
   return (
@@ -19,7 +20,7 @@ const Header = () => {
                 <option value="category3">Category 3</option>
               </select>
               <input type="text" className="form-control me-2" placeholder="Search products..." />
-              <button className="btn btn-primary">Search</button>
+              <component.MainButton>Search</component.MainButton>
             </div>
           </div>
           <div className='col-md-12 col-lg-3'>

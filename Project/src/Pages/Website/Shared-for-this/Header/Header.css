@@ -62,19 +62,6 @@
   color: white;
 }
 
-.header .mid button {
-  padding: 5px 15px;
-  background-color: #D10024;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.header .mid button:hover {
-  background-color: #880017;
-}
-
 .header .mid .form-control, .form-select {
   background-color: #20232A;
   color: white;

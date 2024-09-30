@@ -1,4 +1,3 @@
-// AllProducts.js
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,22 +6,30 @@ import mainImage from './laptop.png';
 import './AllProducts.css';
 import { useTitle } from '../../Contexts/titleContext';
 import { CartContext } from '../../Contexts/cartContext';
-import MainButton from '../../../../Shared/Styled-components/StyledComponents';
+import components from '../../../../Shared/Styled-components/StyledComponents';
 
-const AllProducts = ({ limit }) => {
+
+const AllProducts = ({ limit, ratingFilter }) => {
+
+  // Component States
   const { addToCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
   const title = useTitle();
 
+
+  // Get All Products Function
   const getAllProducts = async () => {
-    const response = await axios.get("http://localhost:3001/products");
-    setProducts(response.data);
+    await axios.get("http://localhost:3001/products").then((response) => setProducts(response.data));
   };
 
+
+  // Use effect
   useEffect(() => {
     getAllProducts();
   }, []);
 
+
+  // Rates Stars Function
   const renderStars = (rate) => {
     const fullStars = Math.floor(rate);
     const halfStar = rate % 1 >= 0.5;
@@ -40,13 +47,21 @@ const AllProducts = ({ limit }) => {
     );
   };
 
+
+
+  // Filter products to five reate only in top selling component
+  const filteredProducts = ratingFilter
+    ? products.filter(product => product.rate === ratingFilter)
+    : products;
+
+
+
   return (
     <div className="all-products">
       <div className="container">
         <h2 style={{ marginBottom: '30px', textTransform: 'uppercase', color: '#D10024' }}>{title}</h2>
         <div className="row">
-          {/* Slice the products array to only display the specified limit */}
-          {products.slice(0, limit).map((product) => (
+          {filteredProducts.slice(0, limit).map((product) => (
             <div key={product.id} className="col-md-3">
               <div className="box">
                 <img src={mainImage} className="img-fluid" alt="Product" />
@@ -65,7 +80,7 @@ const AllProducts = ({ limit }) => {
                   </div>
                 </div>
                 <div className="add">
-                  <MainButton onClick={() => addToCart(product)}>Add To Cart</MainButton>
+                  <components.MainButton onClick={() => addToCart(product)}>Add To Cart</components.MainButton>
                 </div>
               </div>
             </div>

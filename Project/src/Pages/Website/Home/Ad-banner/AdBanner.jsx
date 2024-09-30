@@ -1,6 +1,6 @@
 import './AddBanner.css';
 import { Link } from 'react-router-dom';
-import MainButton from '../../../../Shared/Styled-components/StyledComponents';
+import components from '../../../../Shared/Styled-components/StyledComponents';
 
 const AdBanner = () => {
   return (
@@ -29,9 +29,9 @@ const AdBanner = () => {
         <div className="content">
           <h2 style={{textTransform: 'uppercase'}}>Hot Deal This Week</h2>
           <p>New Collection Up to 50% OFF</p>
-          <MainButton>
+          <components.MainButton>
             <Link style={{color: '#fff', textDecoration: 'none'}} to="/website/products-page">Shop Now</Link>
-          </MainButton>
+          </components.MainButton>
         </div>
       </div>
     </div>

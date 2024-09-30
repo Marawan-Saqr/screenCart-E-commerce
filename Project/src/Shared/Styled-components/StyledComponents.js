@@ -15,4 +15,9 @@ const MainButton = styled.button`
   }
 `;
 
-export default MainButton;
+const mainSpan = styled.span`
+  color: #d10024;
+`;
+
+const components = { MainButton, mainSpan };
+export default components;

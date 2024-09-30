@@ -4,10 +4,10 @@ import Auth from './Pages/Auth/Auth';
 import Login from './Pages/Auth/Login/Login';
 import Register from './Pages/Auth/Register/Register';
 import Website from './Pages/Website/Website';
-import Home from './Pages/Website/Home/Home';
-import ProductsPage from './Pages/Website/Products-page/ProductsPage.jsx';
 import Cart from './Pages/Website/Shared-for-this/Header/Cart/Cart.jsx';
 import CartProvider from './Pages/Website/Contexts/cartContext.js';
+import Home from './Pages/Website/Home/Home';
+import ProductsPage from './Pages/Website/Products-page/ProductsPage.jsx';
 
 function App() {
   return (
