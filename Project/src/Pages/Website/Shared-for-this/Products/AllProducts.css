@@ -10,6 +10,12 @@
   margin-bottom: 70px;
 }
 
+@media (max-width: 767px) {
+  .all-products .box {
+    text-align: center;
+  }
+}
+
 .all-products .box:hover {
   border: 1px solid #d10024;
   transition: 0.5s;

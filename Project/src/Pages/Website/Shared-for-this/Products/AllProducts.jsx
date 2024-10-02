@@ -62,7 +62,7 @@ const AllProducts = ({ limit, ratingFilter }) => {
         <h2 style={{ marginBottom: '30px', textTransform: 'uppercase', color: '#D10024' }}>{title}</h2>
         <div className="row">
           {filteredProducts.slice(0, limit).map((product) => (
-            <div key={product.id} className="col-md-3">
+            <div key={product.id} className="col-md-6 col-lg-4 col-xl-3">
               <div className="box">
                 <img src={mainImage} className="img-fluid" alt="Product" />
                 <div className="content text-center">
