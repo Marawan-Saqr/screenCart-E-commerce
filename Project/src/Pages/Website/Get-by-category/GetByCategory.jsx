@@ -1,33 +1,33 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faStarHalfAlt, faStar as faEmptyStar } from '@fortawesome/free-solid-svg-icons';
-import mainImage from './laptop.png';
-import './AllProducts.css';
-import { useTitle } from '../../Contexts/titleContext';
-import { CartContext } from '../../Contexts/cartContext';
-import components from '../../../../Shared/Styled-components/StyledComponents';
+import './GetByCategory.css';
+import { useEffect, useState, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import image from './laptop.png';
 import { Link } from 'react-router-dom';
+import components from '../../../Shared/Styled-components/StyledComponents';
+import { CartContext } from '../Contexts/cartContext';
+import { faStar, faStarHalfAlt, faStar as faEmptyStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+const GetByCategory = () => {
 
-const AllProducts = ({ limit, ratingFilter }) => {
 
   // Component States
+  const { CATEGORY } = useParams();
   const { addToCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
-  const title = useTitle();
 
 
-  // Get All Products Function
-  const getAllProducts = async () => {
-    await axios.get("http://localhost:3001/products").then((response) => setProducts(response.data));
+  // Get Products By Category Function
+  const fetchCourses = async () => {
+    await axios.get(`http://localhost:3001/products?category=${CATEGORY}`).then((response) => setProducts(response.data));
   };
 
 
-  // Use effect
+  // UseEffect
   useEffect(() => {
-    getAllProducts();
-  }, []);
+    fetchCourses();
+  }, [CATEGORY]);
 
 
   // Rates Stars Function
@@ -49,23 +49,15 @@ const AllProducts = ({ limit, ratingFilter }) => {
   };
 
 
-
-  // Filter products to five reate only in top selling component
-  const filteredProducts = ratingFilter
-    ? products.filter(product => product.rate === ratingFilter)
-    : products;
-
-
-
   return (
-    <div className="all-products">
+    <div className="get-products-by-category">
       <div className="container">
-        <h2 style={{ marginBottom: '30px', textTransform: 'uppercase', color: '#D10024' }}>{title}</h2>
+        <h2 style={{ marginBottom: '30px', textTransform: 'uppercase', color: '#D10024' }}>{CATEGORY} Products</h2>
         <div className="row">
-          {filteredProducts.slice(0, limit).map((product) => (
+          {products.map((product) => (
             <div key={product.id} className="col-md-6 col-lg-4 col-xl-3">
               <div className="box">
-                <img src={mainImage} className="img-fluid" alt="Product" />
+                <img src={image} className="img-fluid" alt="Product" />
                 <div className="content text-center">
                   <p style={{ color: '#8D99AE', textTransform: 'uppercase', fontSize: '12px', margin: '0px' }}>Category: {product.category}</p>
                   <h3 style={{ fontSize: '17px', textTransform: 'uppercase', fontWeight: 'bold', margin: '10px 0px' }}>{product.name}</h3>
@@ -92,4 +84,4 @@ const AllProducts = ({ limit, ratingFilter }) => {
   );
 };
 
-export default AllProducts;
+export default GetByCategory;

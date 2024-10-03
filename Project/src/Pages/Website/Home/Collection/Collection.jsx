@@ -2,7 +2,7 @@ import './Collection.css';
 import collectionOne from './images/collection1.webp';
 import collectionTwo from './images/collection2.webp';
 import collectionThree from './images/collection3.webp';
-
+import { Link } from 'react-router-dom';
 
 const Collection = () => {
   return (
@@ -14,8 +14,8 @@ const Collection = () => {
               <img src={collectionOne} className="img-fluid" alt="Collection One" />
               <div className="overlay"></div>
               <div className="text-content">
-                <h2>Laptop Collection</h2>
-                <a href="/shop" className="shop-now-btn">SHOP NOW ➔</a>
+                <h2>Laptop Products</h2>
+                <Link to={`/website/products-page`} className="shop-now-btn">SHOP NOW ➔</Link>
               </div>
             </div>
           </div>
@@ -24,8 +24,8 @@ const Collection = () => {
               <img src={collectionTwo} className="img-fluid" alt="Collection One" />
               <div className="overlay"></div>
               <div className="text-content">
-                <h2>Laptop Collection</h2>
-                <a href="/shop" className="shop-now-btn">SHOP NOW ➔</a>
+                <h2>Headset Products</h2>
+                <Link to={`/website/products-page`} className="shop-now-btn">SHOP NOW ➔</Link>
               </div>
             </div>
           </div>
@@ -34,8 +34,8 @@ const Collection = () => {
               <img src={collectionThree} className="img-fluid" alt="Collection One" />
               <div className="overlay"></div>
               <div className="text-content">
-                <h2>Laptop Collection</h2>
-                <a href="/shop" className="shop-now-btn">SHOP NOW ➔</a>
+                <h2>Cameras Products</h2>
+                <Link to={`/website/products-page`} className="shop-now-btn">SHOP NOW ➔</Link>
               </div>
             </div>
           </div>

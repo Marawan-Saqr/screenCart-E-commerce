@@ -8,6 +8,8 @@ import Cart from './Pages/Website/Shared-for-this/Header/Cart/Cart.jsx';
 import CartProvider from './Pages/Website/Contexts/cartContext.js';
 import Home from './Pages/Website/Home/Home';
 import ProductsPage from './Pages/Website/Products-page/ProductsPage.jsx';
+import ProductDetails from './Pages/Website/Product-details/ProductDetails.jsx';
+import GetByCategory from './Pages/Website/Get-by-category/GetByCategory.jsx';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
             <Route path="products-page" element={<ProductsPage />} />
+            <Route path="product-details/:PRODUCTID" element={<ProductDetails />} />
+            <Route path="get-by-category/:CATEGORY" element={<GetByCategory />} />
           </Route>
         </Routes>
       </BrowserRouter>

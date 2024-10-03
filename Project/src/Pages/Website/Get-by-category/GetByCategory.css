@@ -1,8 +1,8 @@
-.all-products {
+.get-products-by-category {
   margin: 70px 0px;
 }
 
-.all-products .box {
+.get-products-by-category .box {
   border: 1px solid #e4e4e4;
   transition: 0.5s;
   padding-top: 20px;
@@ -11,21 +11,21 @@
 }
 
 @media (max-width: 767px) {
-  .all-products .box {
+  .get-products-by-category .box {
     text-align: center;
   }
 }
 
-.all-products .box:hover {
+.get-products-by-category .box:hover {
   border: 1px solid #d10024;
   transition: 0.5s;
 }
 
-.all-products .actions {
+.get-products-by-category .actions {
   margin: 20px 0px;
 }
 
-.all-products .actions ul {
+.get-products-by-category .actions ul {
   padding: 0px;
   margin: 0px;
   display: flex;
@@ -33,7 +33,7 @@
   list-style-type: none;
 }
 
-.all-products .actions ul li i[class='fa-solid fa-eye'] {
+.get-products-by-category .actions ul li i[class='fa-solid fa-eye'] {
   transition: 0.5s;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
@@ -42,7 +42,7 @@
   cursor: pointer;
 }
 
-.all-products .actions ul li i[class='fa-solid fa-eye']:hover {
+.get-products-by-category .actions ul li i[class='fa-solid fa-eye']:hover {
   transition: 0.5s;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
@@ -51,7 +51,7 @@
   color: orangered;
 }
 
-.all-products .add {
+.get-products-by-category .add {
   text-align: center;
   background-color: #1e1f29;
   padding: 9px 0px;
@@ -64,7 +64,7 @@
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.all-products .box:hover .add {
+.get-products-by-category .box:hover .add {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
