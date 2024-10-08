@@ -22,7 +22,7 @@
 .ad-banner .lists ul {
   padding: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: 0;
   list-style-type: none;
 }
@@ -40,6 +40,12 @@
   position: relative;
 }
 
+@media (max-width: 767px) {
+  .ad-banner .lists ul li {
+    margin: 0px 5px;
+  }
+}
+
 .ad-banner .lists ul li div {
   position: absolute;
   left: 0px;
@@ -50,16 +56,6 @@
 
 .ad-banner .lists ul li div p {
   margin: 0px;
-}
-
-@media (max-width: 576px) {
-  .ad-banner .lists ul {
-    flex-direction: column;
-  }
-
-  .ad-banner .lists ul li {
-    margin: 10px 0;
-  }
 }
 
 .ad-banner .content {

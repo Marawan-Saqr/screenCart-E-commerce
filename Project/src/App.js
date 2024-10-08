@@ -10,6 +10,7 @@ import Home from './Pages/Website/Home/Home';
 import ProductsPage from './Pages/Website/Products-page/ProductsPage.jsx';
 import ProductDetails from './Pages/Website/Product-details/ProductDetails.jsx';
 import GetByCategory from './Pages/Website/Get-by-category/GetByCategory.jsx';
+import NotFound from './Shared/Not-found/NotFound.jsx';
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
             <Route path="product-details/:PRODUCTID" element={<ProductDetails />} />
             <Route path="get-by-category/:CATEGORY" element={<GetByCategory />} />
           </Route>
+
+          {/* Not Found Page */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
