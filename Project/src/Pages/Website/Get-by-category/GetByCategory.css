@@ -2,6 +2,30 @@
   margin: 70px 0px;
 }
 
+.get-products-by-category img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .get-products-by-category img {
+    height: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .get-products-by-category img {
+    height: auto;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .get-products-by-category img {
+    height: auto;
+  }
+}
+
 .get-products-by-category .box {
   border: 1px solid #e4e4e4;
   transition: 0.5s;
@@ -19,6 +43,13 @@
 .get-products-by-category .box:hover {
   border: 1px solid #d10024;
   transition: 0.5s;
+}
+
+.get-products-by-category .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 40px);
 }
 
 .get-products-by-category .actions {

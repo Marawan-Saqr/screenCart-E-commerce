@@ -34,13 +34,6 @@
   margin-bottom: 70px;
 }
 
-.all-products .content {
-  display: flex;
-  flex-direction: column; /* Stack content */
-  justify-content: space-between; /* Space out items */
-  height: calc(100% - 40px); /* Adjust as needed */
-}
-
 @media (max-width: 767px) {
   .all-products .box {
     text-align: center;
@@ -50,6 +43,13 @@
 .all-products .box:hover {
   border: 1px solid #d10024;
   transition: 0.5s;
+}
+
+.all-products .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 40px);
 }
 
 .all-products .actions {
