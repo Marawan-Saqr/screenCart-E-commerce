@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalfAlt, faStar as faEmptyStar } from '@fortawesome/free-solid-svg-icons';
-import mainImage from './laptop.png';
 import './AllProducts.css';
 import { useTitle } from '../../Contexts/titleContext';
 import { CartContext } from '../../Contexts/cartContext';
@@ -65,7 +64,7 @@ const AllProducts = ({ limit, ratingFilter }) => {
           {filteredProducts.slice(0, limit).map((product) => (
             <div key={product.id} className="col-md-6 col-lg-4 col-xl-3">
               <div className="box">
-                <img src={mainImage} className="img-fluid" alt="Product" />
+                <img src={"http://localhost:3001/images/" + product.productImage} className="img-fluid" alt="Product" />
                 <div className="content text-center">
                   <p style={{ color: '#8D99AE', textTransform: 'uppercase', fontSize: '12px', margin: '0px' }}>Category: {product.category}</p>
                   <h3 style={{ fontSize: '17px', textTransform: 'uppercase', fontWeight: 'bold', margin: '10px 0px' }}>{product.name}</h3>

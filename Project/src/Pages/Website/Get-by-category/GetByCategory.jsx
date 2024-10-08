@@ -2,7 +2,6 @@ import './GetByCategory.css';
 import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import image from './laptop.png';
 import { Link } from 'react-router-dom';
 import components from '../../../Shared/Styled-components/StyledComponents';
 import { CartContext } from '../Contexts/cartContext';
@@ -57,7 +56,7 @@ const GetByCategory = () => {
           {products.map((product) => (
             <div key={product.id} className="col-md-6 col-lg-4 col-xl-3">
               <div className="box">
-                <img src={image} className="img-fluid" alt="Product" />
+                <img src={"http://localhost:3001/images/" + product.productImage} className="img-fluid" alt="Product" />
                 <div className="content text-center">
                   <p style={{ color: '#8D99AE', textTransform: 'uppercase', fontSize: '12px', margin: '0px' }}>Category: {product.category}</p>
                   <h3 style={{ fontSize: '17px', textTransform: 'uppercase', fontWeight: 'bold', margin: '10px 0px' }}>{product.name}</h3>
