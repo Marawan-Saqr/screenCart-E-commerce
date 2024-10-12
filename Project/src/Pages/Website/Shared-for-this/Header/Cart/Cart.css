@@ -1,0 +1,10 @@
+.checkout {
+  border: 1px solid #D10024;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 1px 5px 5px 1px #D10024;
+}
+
+.checkout p {
+  border-bottom: 1px solid black;
+}

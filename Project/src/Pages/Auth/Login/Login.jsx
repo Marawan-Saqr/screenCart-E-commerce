@@ -2,18 +2,17 @@ import "./Login.css";
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+
+import { UserContext } from '../../Website/Contexts/userContext';
 
 
 // Functional Component
 const Login = () => {
 
   // Component States
-  const [users, setUsers] = useState([]);
-  const navigate = useNavigate();
+  const { login } = useContext(UserContext);
 
 
   // Zod Schema
@@ -29,43 +28,10 @@ const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onTouched", resolver: zodResolver(schema) });
 
 
-  // Get All Users Function Before Login
-  const getAllUsers = async () => {
-    await axios.get("http://localhost:3001/users").then((response) => setUsers(response.data));
-  }
-
-
   // Login Function
   const loginFunction = handleSubmit((data) => {
-    const selectUser = users.find(
-      (user) => user.name === data.name && user.password === data.password
-    );
-    if (!selectUser) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Invalid Username or Password!",
-      });
-    } else {
-      Swal.fire({
-        title: "Login Successfully!",
-        text: "Now You Are Moved To Website!",
-        icon: "success"
-        
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate("/website/home");
-          localStorage.setItem("user-data", JSON.stringify(selectUser));
-        }
-      })
-    }
+    login(data.name, data.password);
   });
-
-
-  // UseEffect
-  useEffect(() => {
-    getAllUsers();
-  }, [])
 
 
   return (
