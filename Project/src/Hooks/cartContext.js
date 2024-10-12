@@ -5,10 +5,13 @@ import MuiAlert from '@mui/material/Alert';
 // Functional Component
 export const CartContext = createContext();
 const CartProvider = ({ children }) => {
+
+  // Component States
   const initialCart = JSON.parse(localStorage.getItem("cart-items")) || [];
   const [cart, setCart] = useState(initialCart);
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('');
+
 
   // Add To Cart Function
   const addToCart = (product) => {
@@ -28,19 +31,25 @@ const CartProvider = ({ children }) => {
     setOpen(true);
   };
 
-  // Remove Item From Cart
+
+  // Remove Item From Cart Function
   const removeFromCart = (id) => {
     setCart((cartItems) => cartItems.filter(res => res.id !== id));
   };
 
-  // Close Snackbar
+
+  // Close Snackbar Function
   const handleClose = () => {
     setOpen(false);
   };
 
+
+  // UseEffect Function
   useEffect(() => {
     localStorage.setItem("cart-items", JSON.stringify(cart));
   }, [cart])
+
+
 
   return (
     <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>

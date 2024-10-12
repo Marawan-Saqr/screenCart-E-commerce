@@ -26,7 +26,9 @@ const Header = () => {
           <div className='col-md-12 col-lg-3'>
             <div className='end text-center'>
               <div className='buy-icons'>
-                <i className="fa-regular fa-heart"></i>
+                <Link to={"wishlist"}>
+                  <i className="fa-regular fa-heart"></i>
+                </Link>
                 <h6>Your Wishlist</h6>
               </div>
               <div className='buy-icons'>

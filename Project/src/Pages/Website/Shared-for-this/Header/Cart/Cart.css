@@ -3,6 +3,10 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 1px 5px 5px 1px #D10024;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .checkout p {

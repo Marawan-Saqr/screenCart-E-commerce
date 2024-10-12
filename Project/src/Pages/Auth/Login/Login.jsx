@@ -4,8 +4,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-
-import { UserContext } from '../../Website/Contexts/userContext';
+import { UserContext } from '../../../Hooks/userContext';
 
 
 // Functional Component
@@ -28,7 +27,7 @@ const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onTouched", resolver: zodResolver(schema) });
 
 
-  // Login Function
+  // Login Function Using Context
   const loginFunction = handleSubmit((data) => {
     login(data.name, data.password);
   });

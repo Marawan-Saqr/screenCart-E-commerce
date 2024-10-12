@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import components from '../../../Shared/Styled-components/StyledComponents';
-import { CartContext } from '../Contexts/cartContext';
+import { CartContext } from '../../../Hooks/cartContext';
 import { faStar, faStarHalfAlt, faStar as faEmptyStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

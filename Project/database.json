@@ -39,11 +39,16 @@
       "id": "8",
       "name": "Yosra",
       "password": "12345"
+    },
+    {
+      "id": "bf5a",
+      "name": "Osama",
+      "password": "hello"
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "laptop hp 2010",
       "details": "Small And Speed Laptop",
       "price": 130,
@@ -52,7 +57,7 @@
       "productImage": "laptop-hp-2010.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "laptop hp 2014",
       "details": "Very Speed Laptop",
       "price": 270,
@@ -61,7 +66,7 @@
       "productImage": "laptop-hp-2014.png"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Headset Colorize",
       "details": "Rgba Colors And Beautifull Lights",
       "price": 50,
@@ -70,7 +75,7 @@
       "productImage": "Headset-Colorize.png"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "keyboard rgba red dragon",
       "details": "rgba colors",
       "price": 70,
@@ -79,7 +84,7 @@
       "productImage": "keyboard-rgba-red-dragon.png"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "camera superFrame 360",
       "details": "Super Shot And Quality Photos",
       "price": 390,
@@ -88,7 +93,7 @@
       "productImage": "camera-superFrame-360.png"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "iphone 5",
       "details": "Small Phone And Quality Control Of Anything",
       "price": 90,
@@ -97,7 +102,7 @@
       "productImage": "iphone-5.png"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "screen HP Curve",
       "details": "curve screens with beautifull colors",
       "price": 120,
@@ -106,7 +111,7 @@
       "productImage": "screen-HP-Curve.png"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "smasung Phone 2022",
       "details": "Speed And Medium Quality",
       "price": 80,
@@ -115,7 +120,7 @@
       "productImage": "smasung-Phone-2022.png"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Mic For Pc",
       "details": "Used In Pc And Good Quality Sound",
       "price": 80,
@@ -124,7 +129,7 @@
       "productImage": "Mic-For-Pc.png"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "asus laptop",
       "details": "Small And Speed Laptop",
       "price": 150,

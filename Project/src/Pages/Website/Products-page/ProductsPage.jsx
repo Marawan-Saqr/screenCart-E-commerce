@@ -1,5 +1,5 @@
-import AllProducts from '../Shared-for-this/Products/AllProducts';
-import { TitleProvider } from '../Contexts/titleContext';
+import AllProducts from '../../../Shared/Products/AllProducts';
+import { TitleProvider } from '../../../Hooks/titleContext';
 
 
 const ProductsPage = () => {

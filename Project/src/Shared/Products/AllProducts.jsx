@@ -1,33 +1,31 @@
+import './AllProducts.css';
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalfAlt, faStar as faEmptyStar } from '@fortawesome/free-solid-svg-icons';
-import './AllProducts.css';
-import { useTitle } from '../../Contexts/titleContext';
-import { CartContext } from '../../Contexts/cartContext';
-import components from '../../../../Shared/Styled-components/StyledComponents';
+import { useTitle } from '../../Hooks/titleContext';
+import { CartContext } from '../../Hooks/cartContext';
+import { WishlistContext } from '../../Hooks/wishlistContext';
+import components from '../../Shared/Styled-components/StyledComponents';
 import { Link } from 'react-router-dom';
-
 
 const AllProducts = ({ limit, ratingFilter }) => {
 
   // Component States
   const { addToCart } = useContext(CartContext);
+  const { addToWishlist } = useContext(WishlistContext);
   const [products, setProducts] = useState([]);
   const title = useTitle();
-
 
   // Get All Products Function
   const getAllProducts = async () => {
     await axios.get("http://localhost:3001/products").then((response) => setProducts(response.data));
   };
 
-
   // Use effect
   useEffect(() => {
     getAllProducts();
   }, []);
-
 
   // Rates Stars Function
   const renderStars = (rate) => {
@@ -47,14 +45,10 @@ const AllProducts = ({ limit, ratingFilter }) => {
     );
   };
 
-
-
-  // Filter products to five reate only in top selling component
+  // Filter products
   const filteredProducts = ratingFilter
     ? products.filter(product => product.rate === ratingFilter)
     : products;
-
-
 
   return (
     <div className="all-products">
@@ -73,9 +67,18 @@ const AllProducts = ({ limit, ratingFilter }) => {
                   <div><hr /></div>
                   <div className="actions container">
                     <ul>
-                      <li><i className="fa-regular fa-heart"></i></li>
-                      <li><i className="fa-solid fa-code-compare"></i></li>
-                      <Link style={{color: 'black'}} to={`/website/product-details/${product.id}`}><li><i className="fa-solid fa-eye"></i></li></Link>
+                      <li>
+                        <components.MainButton onClick={() => addToWishlist(product)}>
+                          <i className="fa-regular fa-heart"></i>
+                        </components.MainButton>
+                      </li>
+                      <li>
+                        <Link to={`/website/product-details/${product.id}`}>
+                          <components.MainButton>
+                            <i className="fa-solid fa-eye"></i> View Details
+                          </components.MainButton>
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                 </div>

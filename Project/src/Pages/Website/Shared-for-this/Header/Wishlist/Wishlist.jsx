@@ -1,32 +1,25 @@
-import './Cart.css';
+import './Wishlist.css';
 import React, { useEffect, useContext, useState } from 'react';
-import { CartContext } from '../../../../../Hooks/cartContext';
+import { WishlistContext } from '../../../../../Hooks/wishlistContext';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import components from '../../../../../Shared/Styled-components/StyledComponents';
 import { Link } from 'react-router-dom';
 
 // Functional Component
-const Cart = () => {
+const Wishlist = () => {
 
   // Component States
-  const { cart, removeFromCart } = useContext(CartContext);
-  const [subtotal, setSubTotal] = useState(0);
-  const shippingCost = 5;
-
-  // UseEffect
-  useEffect(() => {
-    setSubTotal(() => cart.reduce((a, b) => a + (b.qty * b.price), 0));
-  }, [cart]);
+  const { wishlist, removeFromWishlist } = useContext(WishlistContext);
 
   return (
     <Container className="my-5">
-      {cart.length > 0 ? (
+      {wishlist.length > 0 ? (
         <Row className="align-items-start">
           {/* Product Cards */}
-          <Col lg={8}>
+          <Col lg={12}>
             <Row>
-              {cart.map((product, index) => (
-                <Col key={index} sm={12} md={6} lg={6} className="mb-4">
+              {wishlist.map((product, index) => (
+                <Col key={index} sm={12} md={6} lg={4} className="mb-4">
                   <Card className="shadow-sm">
                     <Card.Body>
                       <Card.Title>{product.name}</Card.Title>
@@ -36,16 +29,13 @@ const Cart = () => {
                         <span className="text-success fw-bold">
                           <strong>Price: ${product.price}</strong>
                         </span>
-                        <span className="text-success fw-bold">
-                          <strong>Qty: {product.qty}</strong>
-                        </span>
                         <span className="badge bg-warning text-dark">
                           Rating: {product.rate}
                         </span>
                       </div>
                       <components.MainButton
                         className="mt-3"
-                        onClick={() => removeFromCart(product.id)}
+                        onClick={() => removeFromWishlist(product.id)}
                       >
                         Remove
                       </components.MainButton>
@@ -55,26 +45,14 @@ const Cart = () => {
               ))}
             </Row>
           </Col>
-
-          {/* Checkout Section */}
-          <Col lg={4}>
-            <div className="checkout">
-              <h3 style={{textTransform: 'uppercase'}}><strong>Checkout</strong></h3>
-              <p><strong>Total Items: {cart.length}</strong></p>
-              <p><strong>Total Price: {subtotal.toFixed(2)}$</strong></p>
-              <p><strong>Shipping: {shippingCost}$</strong></p>
-              <p><strong>Grand Total: {(subtotal + shippingCost).toFixed(2)}$</strong></p>
-              <components.MainButton style={{width: '100%'}}>Checkout</components.MainButton>
-            </div>
-          </Col>
         </Row>
       ) : (
-        <div className="cart-empty">
-          <h3 style={{ textTransform: 'uppercase', color: 'gray' }}>Your Cart Is Empty!!!</h3>
+        <div className="wishlist-empty">
+          <h3 style={{ textTransform: 'uppercase', color: 'gray' }}>Your Wishlist Is Empty!!!</h3>
         </div>
       )}
     </Container>
   );
 };
 
-export default Cart;
+export default Wishlist;
