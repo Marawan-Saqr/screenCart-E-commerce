@@ -7,6 +7,7 @@ import components from '../../../Shared/Styled-components/StyledComponents';
 import { CartContext } from '../../../Hooks/cartContext';
 import { faStar, faStarHalfAlt, faStar as faEmptyStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { WishlistContext } from '../../../Hooks/wishlistContext';
 
 const GetByCategory = () => {
 
@@ -14,6 +15,7 @@ const GetByCategory = () => {
   // Component States
   const { CATEGORY } = useParams();
   const { addToCart } = useContext(CartContext);
+  const { addToWishlist } = useContext(WishlistContext);
   const [products, setProducts] = useState([]);
 
 
@@ -65,9 +67,18 @@ const GetByCategory = () => {
                   <div><hr /></div>
                   <div className="actions container">
                     <ul>
-                      <li><i className="fa-regular fa-heart"></i></li>
-                      <li><i className="fa-solid fa-code-compare"></i></li>
-                      <Link style={{color: 'black'}} to={`/website/product-details/${product.id}`}><li><i className="fa-solid fa-eye"></i></li></Link>
+                      <li>
+                        <components.MainButton onClick={() => addToWishlist(product)}>
+                          <i className="fa-regular fa-heart"></i>
+                        </components.MainButton>
+                      </li>
+                      <li>
+                        <Link to={`/website/product-details/${product.id}`}>
+                          <components.MainButton>
+                            <i className="fa-solid fa-eye"></i> View Details
+                          </components.MainButton>
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                 </div>

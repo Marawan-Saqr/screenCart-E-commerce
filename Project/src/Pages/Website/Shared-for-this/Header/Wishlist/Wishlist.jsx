@@ -1,21 +1,19 @@
 import './Wishlist.css';
-import React, { useEffect, useContext, useState } from 'react';
-import { WishlistContext } from '../../../../../Hooks/wishlistContext';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromWishlist } from '../../../../../Redux/slices/wishlist.slice';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import components from '../../../../../Shared/Styled-components/StyledComponents';
 import { Link } from 'react-router-dom';
 
-// Functional Component
 const Wishlist = () => {
-
-  // Component States
-  const { wishlist, removeFromWishlist } = useContext(WishlistContext);
+  const dispatch = useDispatch();
+  const wishlist = useSelector((state) => state.wishlist.items);
 
   return (
     <Container className="my-5">
       {wishlist.length > 0 ? (
         <Row className="align-items-start">
-          {/* Product Cards */}
           <Col lg={12}>
             <Row>
               {wishlist.map((product, index) => (
@@ -35,7 +33,7 @@ const Wishlist = () => {
                       </div>
                       <components.MainButton
                         className="mt-3"
-                        onClick={() => removeFromWishlist(product.id)}
+                        onClick={() => dispatch(removeFromWishlist(product.id))}
                       >
                         Remove
                       </components.MainButton>

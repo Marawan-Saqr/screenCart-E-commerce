@@ -1,22 +1,24 @@
 import './Cart.css';
-import React, { useEffect, useContext, useState } from 'react';
-import { CartContext } from '../../../../../Hooks/cartContext';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import components from '../../../../../Shared/Styled-components/StyledComponents';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFromCart } from '../../../../../Redux/slices/cart.slice';
 
-// Functional Component
 const Cart = () => {
 
   // Component States
-  const { cart, removeFromCart } = useContext(CartContext);
+  const cart = useSelector(state => state.cart.cartItems);
   const [subtotal, setSubTotal] = useState(0);
   const shippingCost = 5;
+  const dispatch = useDispatch();
 
-  // UseEffect
+  // useEffect
   useEffect(() => {
     setSubTotal(() => cart.reduce((a, b) => a + (b.qty * b.price), 0));
-  }, [cart]);
+  }, [cart, shippingCost]);
+  
 
   return (
     <Container className="my-5">
@@ -45,7 +47,7 @@ const Cart = () => {
                       </div>
                       <components.MainButton
                         className="mt-3"
-                        onClick={() => removeFromCart(product.id)}
+                        onClick={() => dispatch(removeFromCart(product.id))}
                       >
                         Remove
                       </components.MainButton>
