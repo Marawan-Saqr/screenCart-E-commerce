@@ -1,22 +1,23 @@
 import './GetByCategory.css';
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import components from '../../../Shared/Styled-components/StyledComponents';
-import { CartContext } from '../../../Hooks/cartContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, closeMessage } from '../../../Redux/slices/cart.slice';
+import { addToWishlist, closeWishlistMessage } from '../../../Redux/slices/wishlist.slice';
 import { faStar, faStarHalfAlt, faStar as faEmptyStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { WishlistContext } from '../../../Hooks/wishlistContext';
 
 const GetByCategory = () => {
 
-
   // Component States
   const { CATEGORY } = useParams();
-  const { addToCart } = useContext(CartContext);
-  const { addToWishlist } = useContext(WishlistContext);
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const { message: cartMessage, open: cartOpen } = useSelector(state => state.cart);
+  const { message: wishlistMessage, open: wishlistOpen } = useSelector(state => state.wishlist);
 
 
   // Get Products By Category Function
@@ -25,10 +26,26 @@ const GetByCategory = () => {
   };
 
 
-  // UseEffect
+  // UseEffect to fetch products based on category
   useEffect(() => {
     fetchCourses();
   }, [CATEGORY]);
+
+
+  // Handle Cart Message Timeout
+  useEffect(() => {
+    if (cartOpen) {
+      setTimeout(() => dispatch(closeMessage()), 9000);
+    }
+  }, [cartOpen, dispatch]);
+
+
+  // Handle Wishlist Message Timeout
+  useEffect(() => {
+    if (wishlistOpen) {
+      setTimeout(() => dispatch(closeWishlistMessage()), 3000);
+    }
+  }, [wishlistOpen, dispatch]);
 
 
   // Rates Stars Function
@@ -53,6 +70,19 @@ const GetByCategory = () => {
   return (
     <div className="get-products-by-category">
       <div className="container">
+
+        {/* Show Cart and Wishlist Messages */}
+        {cartOpen && (
+          <div className="message cart-message">
+            <p>{cartMessage}</p>
+          </div>
+        )}
+        {wishlistOpen && (
+          <div className="message wishlist-message">
+            <p>{wishlistMessage}</p>
+          </div>
+        )}
+
         <h2 style={{ marginBottom: '30px', textTransform: 'uppercase', color: '#D10024' }}>{CATEGORY} Products</h2>
         <div className="row">
           {products.map((product) => (
@@ -68,7 +98,7 @@ const GetByCategory = () => {
                   <div className="actions container">
                     <ul>
                       <li>
-                        <components.MainButton onClick={() => addToWishlist(product)}>
+                        <components.MainButton onClick={() => dispatch(addToWishlist(product))}>
                           <i className="fa-regular fa-heart"></i>
                         </components.MainButton>
                       </li>
@@ -83,7 +113,7 @@ const GetByCategory = () => {
                   </div>
                 </div>
                 <div className="add">
-                  <components.MainButton onClick={() => addToCart(product)}>Add To Cart</components.MainButton>
+                  <components.MainButton onClick={() => dispatch(addToCart(product))}>Add To Cart</components.MainButton>
                 </div>
               </div>
             </div>

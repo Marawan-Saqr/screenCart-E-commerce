@@ -14,11 +14,13 @@ const Cart = () => {
   const shippingCost = 5;
   const dispatch = useDispatch();
 
+  // Calculate total quantity of items (including duplicates)
+  const totalItems = cart.reduce((acc, product) => acc + product.qty, 0);
+
   // useEffect
   useEffect(() => {
     setSubTotal(() => cart.reduce((a, b) => a + (b.qty * b.price), 0));
   }, [cart, shippingCost]);
-  
 
   return (
     <Container className="my-5">
@@ -62,7 +64,7 @@ const Cart = () => {
           <Col lg={4}>
             <div className="checkout">
               <h3 style={{textTransform: 'uppercase'}}><strong>Checkout</strong></h3>
-              <p><strong>Total Items: {cart.length}</strong></p>
+              <p><strong>Total Items: {totalItems}</strong></p>  {/* Updated to show total quantity */}
               <p><strong>Total Price: {subtotal.toFixed(2)}$</strong></p>
               <p><strong>Shipping: {shippingCost}$</strong></p>
               <p><strong>Grand Total: {(subtotal + shippingCost).toFixed(2)}$</strong></p>
