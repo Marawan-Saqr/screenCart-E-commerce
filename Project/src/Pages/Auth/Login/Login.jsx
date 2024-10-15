@@ -1,16 +1,16 @@
-import { useEffect } from "react";
-import "./Login.css";
+import React, { useEffect } from "react";
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../../Redux/slices/loginWebsite.slice";
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux"; // Importing useDispatch
+import { loginUser } from "../../../Redux/slices/loginWebsite.slice"; // Correct import of loginUser
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // Access dispatch function from react-redux
   const navigate = useNavigate();
-  const { isLoggedIn } = useSelector((state) => state.loginWebsite);
+  const { isLoggedIn } = useSelector((state) => state.loginWebsite); // Access Redux state for login status and user data
 
   const schema = z.object({
     name: z.string().nonempty('Username is required'),
@@ -23,13 +23,12 @@ const Login = () => {
   });
 
   const loginFunction = handleSubmit((data) => {
-    dispatch(loginUser(data.name, data.password));
+    dispatch(loginUser(data.name, data.password)); // Dispatch login action
   });
-
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate('/website/home');
+      navigate('/website/home'); // Navigate to home after login
     }
   }, [isLoggedIn, navigate]);
 

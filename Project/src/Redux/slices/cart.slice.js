@@ -44,6 +44,9 @@ const cartSlice = createSlice({
       state.cartItems = state.cartItems.filter(item => item.id !== productId);
       saveCartToLocalStorage(state.cartItems);
     },
+    emptyCart: (state) => {
+      state.cartItems = [];
+    },
     closeMessage: (state) => {
       state.open = false;
       state.message = '';
@@ -51,5 +54,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, closeMessage } = cartSlice.actions;
+export const { addToCart, removeFromCart, closeMessage, emptyCart } = cartSlice.actions;
 export default cartSlice;

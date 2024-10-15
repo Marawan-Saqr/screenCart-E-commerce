@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Marawan",
       "password": "4857463",
-      "role": "admin"
+      "role": "user"
     },
     {
       "id": "2",
@@ -139,6 +139,25 @@
       "category": "laptops",
       "rate": 1,
       "productImage": "asus-laptop.png"
+    }
+  ],
+  "orders": [
+    {
+      "id": "a0d5",
+      "userId": "1",
+      "products": [
+        {
+          "id": "2",
+          "name": "laptop hp 2014",
+          "details": "Very Speed Laptop",
+          "price": 270,
+          "category": "laptops",
+          "rate": 2,
+          "productImage": "laptop-hp-2014.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729004121766
     }
   ]
 }
