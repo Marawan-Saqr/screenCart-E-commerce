@@ -12,17 +12,17 @@ import { Link } from 'react-router-dom';
 import Loader from '../../Shared/Loader/Loader';
 
 
-
-
 const AllProducts = ({ limit, ratingFilter }) => {
+
+  // Component States
   const dispatch = useDispatch(); 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const title = useTitle();
-
   const { message: cartMessage, open: cartOpen } = useSelector(state => state.cart);
   const { message: wishlistMessage, open: wishlistOpen } = useSelector(state => state.wishlist);
 
+  // Get All Components Function
   const getAllProducts = async () => {
     try {
       const response = await axios.get("http://localhost:3001/products");
@@ -34,10 +34,12 @@ const AllProducts = ({ limit, ratingFilter }) => {
     }
   };
 
+  // UseEffect Get All Products
   useEffect(() => {
     getAllProducts();
   }, []);
 
+  // UseEffect Time For Show & Dispear Message Of Cart
   useEffect(() => {
     if (cartOpen) {
       const timer = setTimeout(() => {
@@ -48,6 +50,7 @@ const AllProducts = ({ limit, ratingFilter }) => {
     }
   }, [cartOpen, dispatch]);
 
+  // UseEffect Time For Show & Dispear Message Of Wishlist
   useEffect(() => {
     if (wishlistOpen) {
       const timer = setTimeout(() => {
@@ -58,6 +61,7 @@ const AllProducts = ({ limit, ratingFilter }) => {
     }
   }, [wishlistOpen, dispatch]);
 
+  // Render Stars Function
   const renderStars = (rate) => {
     const fullStars = Math.floor(rate);
     const halfStar = rate % 1 >= 0.5;
@@ -75,6 +79,7 @@ const AllProducts = ({ limit, ratingFilter }) => {
     );
   };
 
+  // Filter Products Function
   const filteredProducts = ratingFilter
     ? products.filter(product => product.rate === ratingFilter)
     : products;

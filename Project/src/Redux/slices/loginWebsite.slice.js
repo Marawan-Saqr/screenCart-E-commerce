@@ -1,15 +1,15 @@
+// loginWebsite.slice.js
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-// Initial state
 const initialState = {
-  user: null,
+  userData: null,
   loading: false,
   error: null,
+  isLoggedIn: false,  // Add a flag for successful login
 };
 
-// Redux slice
 const loginWebsiteSlice = createSlice({
   name: 'loginWebsite',
   initialState,
@@ -20,22 +20,23 @@ const loginWebsiteSlice = createSlice({
     },
     loginSuccess: (state, action) => {
       state.loading = false;
-      state.user = action.payload;
+      state.userData = action.payload;
+      state.isLoggedIn = true;  // Update isLoggedIn status
     },
     loginFailure: (state, action) => {
       state.loading = false;
       state.error = action.payload;
+      state.isLoggedIn = false;
     },
     logout: (state) => {
-      state.user = null;
+      state.userData = null;
+      state.isLoggedIn = false; // Reset the login state
     },
   },
 });
 
-// Actions
 export const { loginStart, loginSuccess, loginFailure, logout } = loginWebsiteSlice.actions;
 
-// Thunk for login
 export const loginUser = (name, password) => async (dispatch) => {
   dispatch(loginStart());
   try {

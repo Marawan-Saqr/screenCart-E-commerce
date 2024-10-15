@@ -3,47 +3,50 @@
     {
       "id": "1",
       "name": "Marawan",
-      "password": "4857463"
+      "password": "4857463",
+      "role": "admin"
     },
     {
       "id": "2",
       "name": "Ahmed",
-      "password": "ahmed7493"
+      "password": "ahmed7493",
+      "role": "user"
     },
     {
       "id": "3",
       "name": "Norhan",
-      "password": "norhan@#7493"
+      "password": "norhan@#7493",
+      "role": "user"
     },
     {
       "id": "4",
       "name": "Sara",
-      "password": "sara@gmail"
+      "password": "sara@gmail",
+      "role": "user"
     },
     {
       "id": "5",
       "name": "Khaled",
-      "password": "hello4059493Kha"
+      "password": "hello4059493Kha",
+      "role": "user"
     },
     {
       "id": "6",
       "name": "Mohmed Hussien",
-      "password": "12345"
+      "password": "12345",
+      "role": "user"
     },
     {
       "id": "7",
       "name": "Yassmina ",
-      "password": "12345"
+      "password": "12345",
+      "role": "user"
     },
     {
       "id": "8",
       "name": "Yosra",
-      "password": "12345"
-    },
-    {
-      "id": "bf5a",
-      "name": "Osama",
-      "password": "hello"
+      "password": "12345",
+      "role": "user"
     }
   ],
   "products": [

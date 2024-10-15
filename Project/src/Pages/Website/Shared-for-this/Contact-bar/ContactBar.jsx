@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './ContactBar.css';
 
 const ContactBar = () => {
-  const [username, setUsername] = useState('');
 
+  // Component States
+  const [user, setUser] = useState(null);
+
+
+  // UseEffect
   useEffect(() => {
     const storedUserData = localStorage.getItem('user-data');
     if (storedUserData) {
       const userData = JSON.parse(storedUserData);
-      setUsername(userData.name);
+      setUser(userData);
     }
   }, []);
 
@@ -30,7 +35,9 @@ const ContactBar = () => {
               <ul>
                 <li><i className="fa-solid fa-dollar-sign"></i> USD</li>
                 {/* Conditionally render username or 'My Account' */}
-                <li><i className="fa-solid fa-user"></i> {username ? username : 'My Account'}</li>
+                <Link to={user && user.id ? `/website/user-details/${user.id}` : '#'} style={{color: '#fff', textDecoration: 'none'}}>
+                  <li><i className="fa-solid fa-user"></i> {user && user.name ? user.name : 'My Account'}</li>
+                </Link>
               </ul>
             </div>
           </div>

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./Login.css";
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -6,33 +7,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../../Redux/slices/loginWebsite.slice";
 import { Link, useNavigate } from "react-router-dom";
 
-// Functional Component
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.loginWebsite);
+  const { isLoggedIn } = useSelector((state) => state.loginWebsite);
 
-  // Zod Schema for form validation
   const schema = z.object({
-    name: z.string().min(3, 'Username must be at least 3 characters').nonempty('Username is required'),
-    password: z.string().min(6, 'Password must be at least 6 characters').nonempty('Password is required'),
+    name: z.string().nonempty('Username is required'),
+    password: z.string().nonempty('Password is required'),
   });
 
-  // React Hook Form
   const { register, handleSubmit, formState: { errors } } = useForm({
     mode: "onTouched",
     resolver: zodResolver(schema),
   });
 
-  // Login function using Redux
   const loginFunction = handleSubmit((data) => {
     dispatch(loginUser(data.name, data.password));
   });
 
-  // Redirect to home after successful login
-  if (user) {
-    navigate('/website/home');
-  }
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/website/home');
+    }
+  }, [isLoggedIn, navigate]);
 
   return (
     <section className="login-box">
@@ -49,8 +48,6 @@ const Login = () => {
             <div className="col-md-7 rightside">
               <form onSubmit={loginFunction}>
                 <h1 style={{ fontWeight: 'bold', fontStyle: 'italic' }}>LOGIN FORM</h1>
-
-                {/* Username */}
                 <div className="form-group">
                   <label style={{ fontWeight: 'bold', fontStyle: 'italic' }}>Username</label>
                   <input
@@ -61,8 +58,6 @@ const Login = () => {
                   />
                   {errors.name && <p className="text-danger">{errors.name.message}</p>}
                 </div>
-
-                {/* Password */}
                 <div className="form-group">
                   <label style={{ fontWeight: 'bold', fontStyle: 'italic' }}>Password</label>
                   <input
@@ -73,16 +68,12 @@ const Login = () => {
                   />
                   {errors.password && <p className="text-danger">{errors.password.message}</p>}
                 </div>
-
-                {/* Submit Button */}
                 <button type="submit" className="btn button">
                   LOGIN
                 </button>
               </form>
               <div className="text-end mt-3">
-                <Link to="/register">
-                  Sign Up
-                </Link>
+                <Link to="/register">Sign Up</Link>
               </div>
             </div>
           </div>
