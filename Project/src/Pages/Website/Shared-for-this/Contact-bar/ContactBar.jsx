@@ -33,7 +33,9 @@ const ContactBar = () => {
           <div className="col-lg-2">
             <div className="right">
               <ul>
-                <li><i className="fa-solid fa-dollar-sign"></i> USD</li>
+                <Link to={"my-orders"} style={{color: '#fff', textDecoration: 'none'}}>
+                  <li><i class="fa-solid fa-cart-arrow-down"></i> My Orders</li>
+                </Link>
                 {/* Conditionally render username or 'My Account' */}
                 <Link to={user && user.id ? `/website/user-details/${user.id}` : '#'} style={{color: '#fff', textDecoration: 'none'}}>
                   <li><i className="fa-solid fa-user"></i> {user && user.name ? user.name : 'My Account'}</li>

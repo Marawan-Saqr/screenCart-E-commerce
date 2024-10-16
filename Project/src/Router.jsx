@@ -13,6 +13,7 @@ import GetByCategory from "./Pages/Website/Get-by-category/GetByCategory.jsx";
 import NotFound from "./Shared/Not-found/NotFound.jsx";
 import UserDetails from './Pages/Website/User-details/UserDetails.jsx';
 import Dashboard from './Pages/Dashboard/Dashboard.jsx';
+import MyOrders from './Pages/Website/My-orders/MyOrders.jsx';
 
 
 const Router = () => {
@@ -37,6 +38,7 @@ const Router = () => {
           <Route path="product-details/:PRODUCTID" element={<ProductDetails />} />
           <Route path="get-by-category/:CATEGORY" element={<GetByCategory />} />
           <Route path="user-details/:USERID" element={<UserDetails />} />
+          <Route path="my-orders" element={<MyOrders />} />
         </Route>
 
 

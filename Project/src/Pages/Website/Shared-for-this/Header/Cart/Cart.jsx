@@ -13,7 +13,7 @@ const Cart = () => {
 
   // Component States
   const dispatch = useDispatch();
-  const { redirect } = useAuth();
+  const { redirect, isLoggedIn } = useAuth();
   const cart = useSelector(state => state.cart.cartItems);
   const user = useSelector(state => state.loginWebsite.userData);
   const [subtotal, setSubTotal] = useState(0);
@@ -29,7 +29,11 @@ const Cart = () => {
   }, [cart, shippingCost]);
 
   const checkout = () => {
-    redirect();
+    if (!isLoggedIn) {
+      redirect();
+      return;
+    }
+  
     Swal.fire({
       title: "Are you sure?",
       text: "You Will Order These Product.",
@@ -38,12 +42,13 @@ const Cart = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, confirm it!"
-    }).then(async(result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
         await axios.post("http://localhost:3001/orders", {
           userId: user.id,
+          userName: user.name,
           products: cart,
-          createdAt: Date.now()
+          createdAt: new Date.now()
         }).then(() => {
           Swal.fire({
             title: "Confirmed!",
@@ -51,10 +56,11 @@ const Cart = () => {
             icon: "success"
           });
           dispatch(emptyCart());
-        })
+        });
       }
     });
-  }
+  };
+  
 
   return (
     <Container className="my-5">

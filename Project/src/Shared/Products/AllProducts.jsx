@@ -1,6 +1,5 @@
 import './AllProducts.css';
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalfAlt, faStar as faEmptyStar } from '@fortawesome/free-solid-svg-icons';
 import { useTitle } from '../../Hooks/titleContext';
@@ -10,53 +9,32 @@ import { addToWishlist, closeWishlistMessage } from '../../Redux/slices/wishlist
 import components from '../../Shared/Styled-components/StyledComponents';
 import { Link } from 'react-router-dom';
 import Loader from '../../Shared/Loader/Loader';
-
+import { useGetAllProductsQuery } from '../../Redux/queries/products.query';
 
 const AllProducts = ({ limit, ratingFilter }) => {
 
-  // Component States
+  const { data: products, isLoading } = useGetAllProductsQuery();
   const dispatch = useDispatch(); 
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const title = useTitle();
   const { message: cartMessage, open: cartOpen } = useSelector(state => state.cart);
   const { message: wishlistMessage, open: wishlistOpen } = useSelector(state => state.wishlist);
 
-  // Get All Components Function
-  const getAllProducts = async () => {
-    try {
-      const response = await axios.get("http://localhost:3001/products");
-      setProducts(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-      setLoading(true);
-    }
-  };
-
-  // UseEffect Get All Products
-  useEffect(() => {
-    getAllProducts();
-  }, []);
-
-  // UseEffect Time For Show & Dispear Message Of Cart
+  // UseEffect for cart message
   useEffect(() => {
     if (cartOpen) {
       const timer = setTimeout(() => {
         dispatch(closeMessage());
       }, 3000);
-
       return () => clearTimeout(timer);
     }
   }, [cartOpen, dispatch]);
 
-  // UseEffect Time For Show & Dispear Message Of Wishlist
+  // UseEffect for wishlist message
   useEffect(() => {
     if (wishlistOpen) {
       const timer = setTimeout(() => {
         dispatch(closeWishlistMessage());
       }, 3000);
-
       return () => clearTimeout(timer);
     }
   }, [wishlistOpen, dispatch]);
@@ -79,10 +57,10 @@ const AllProducts = ({ limit, ratingFilter }) => {
     );
   };
 
-  // Filter Products Function
-  const filteredProducts = ratingFilter
-    ? products.filter(product => product.rate === ratingFilter)
-    : products;
+  // Filter Products based on rating
+  const filteredProducts = products
+    ? (ratingFilter ? products.filter(product => product.rate === ratingFilter) : products)
+    : [];
 
   return (
     <div className="all-products">
@@ -98,7 +76,7 @@ const AllProducts = ({ limit, ratingFilter }) => {
           </div>
         )}
         <h2 style={{ marginBottom: '30px', textTransform: 'uppercase', color: '#D10024' }}>{title}</h2>
-        {loading ? (  
+        {isLoading ? (  
           <Loader />
         ) : (
           <div className="row">
