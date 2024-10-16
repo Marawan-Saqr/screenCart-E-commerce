@@ -48,7 +48,7 @@ const Cart = () => {
           userId: user.id,
           userName: user.name,
           products: cart,
-          createdAt: new Date.now()
+          createdAt: Date.now()
         }).then(() => {
           Swal.fire({
             title: "Confirmed!",
