@@ -1,5 +1,5 @@
 import Collection from './Collection/Collection';
-import AllProducts from '../../../Shared/Products/AllProducts';
+import AllProducts from '../Shared-for-this/Products/AllProducts';
 import { TitleProvider } from '../../../Hooks/titleContext';
 import AdBanner from './Ad-banner/AdBanner';
 import Subscribe from '../Shared-for-this/Subscribe/Subscribe';

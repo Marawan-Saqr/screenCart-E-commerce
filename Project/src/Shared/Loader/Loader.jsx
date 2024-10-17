@@ -107,7 +107,6 @@ const Loader = () => {
             </svg>
           </div>
           <div className="road"></div>
-
           <svg
             xmlSpace="preserve"
             viewBox="0 0 453.459 453.459"

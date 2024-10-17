@@ -1,18 +1,19 @@
-import "./Register.css";
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
+import { useDispatch } from 'react-redux';
+import { registerStart, registerSuccess, registerFailure } from '../../../Redux/slices/register.slice';  // Import actions
 
+import "./Register.css";
 
 // Functional Component
 const Register = () => {
-
-  // Component States
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();  // Redux dispatch function
 
   // Zod Schema
   const schema = z.object({
@@ -26,36 +27,51 @@ const Register = () => {
       .max(30, 'Password cant be more than 20 characters'),
   });
 
-
   // React Hook Form Destruct
-  const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onTouched", resolver: zodResolver(schema) });
-
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    mode: "onTouched", 
+    resolver: zodResolver(schema),
+  });
 
   // Register Function
   const registerFunction = handleSubmit(async (data) => {
-    const response = await axios.get("http://localhost:3001/users");
-    const existingUser = response.data.find(
-      (user) => user.name === data.name
-    );
-    if (existingUser) {
+    dispatch(registerStart());  // Dispatch register start
+
+    try {
+      const response = await axios.get("http://localhost:3001/websiteUsers");
+      const existingUser = response.data.find(
+        (user) => user.name === data.name
+      );
+
+      if (existingUser) {
+        Swal.fire({
+          title: "Register Failed!",
+          text: "User already exists!",
+          icon: "error"
+        });
+        dispatch(registerFailure("User already exists!"));  // Dispatch failure
+      } else {
+        Swal.fire({
+          title: "Register Successfully!",
+          text: "Now You Are Moved To Login!",
+          icon: "success"
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            await axios.post("http://localhost:3001/websiteUsers", data);
+            dispatch(registerSuccess());  // Dispatch success
+            navigate("/login");
+          }
+        });
+      }
+    } catch (error) {
       Swal.fire({
-        title: "Register Failed!",
-        text: "User already exist!",
+        title: "Error",
+        text: "Something went wrong. Please try again.",
         icon: "error"
       });
-    } else {
-      Swal.fire({
-        title: "Register Successfully!",
-        text: "Now You Are Moved To Login!",
-        icon: "success"
-      }).then(async(result) => {
-        if (result.isConfirmed) {
-          await axios.post("http://localhost:3001/users", data).then(() => navigate("/login"));
-        }
-      })
+      dispatch(registerFailure(error.message));  // Dispatch failure
     }
   });
-
 
   return (
     <section className="register-box">
@@ -71,11 +87,12 @@ const Register = () => {
             </div>
             <div className="col-md-7 rightside">
               <form onSubmit={handleSubmit(registerFunction)}>
-
-
                 {/* Username */}
                 <h1 style={{ fontWeight: 'bold', fontStyle: 'italic' }}>REGISTER FORM</h1>
-                <p style={{color: 'gray', fontSize: '12px'}}>You Will Login After Register So Remember Username & Password</p>
+                <p style={{ color: 'gray', fontSize: '12px' }}>
+                  You Will Login After Register So Remember Username & Password
+                </p>
+
                 <div className="form-group">
                   <label style={{ fontWeight: 'bold', fontStyle: 'italic' }}>Username</label>
                   <input
@@ -86,7 +103,6 @@ const Register = () => {
                   />
                   {errors.name && <p className="text-danger">{errors.name.message}</p>}
                 </div>
-
 
                 {/* Password */}
                 <div className="form-group">
@@ -100,16 +116,15 @@ const Register = () => {
                   {errors.password && <p className="text-danger">{errors.password.message}</p>}
                 </div>
 
-
-                {/* Submit */}
+                {/* Submit Button */}
                 <button type="submit" className="btn button">
                   REGISTER
                 </button>
               </form>
+
+              {/* Link to Login */}
               <div className="text-end mt-3">
-                <Link to={"/login"}>
-                  Login
-                </Link>
+                <Link to="/login">Login</Link>
               </div>
             </div>
           </div>

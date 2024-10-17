@@ -3,18 +3,33 @@ import { Link } from 'react-router-dom';
 import './ContactBar.css';
 
 const ContactBar = () => {
-
   // Component States
   const [user, setUser] = useState(null);
 
-
-  // UseEffect
+  // UseEffect to load user from localStorage when the component mounts
   useEffect(() => {
     const storedUserData = localStorage.getItem('user-data');
     if (storedUserData) {
       const userData = JSON.parse(storedUserData);
       setUser(userData);
     }
+
+    // Listen to localStorage changes (optional for cross-tab updates)
+    const handleStorageChange = () => {
+      const updatedUserData = localStorage.getItem('user-data');
+      if (updatedUserData) {
+        setUser(JSON.parse(updatedUserData));
+      } else {
+        setUser(null);
+      }
+    };
+
+    // Add event listener for storage changes
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, []);
 
   return (
@@ -33,11 +48,11 @@ const ContactBar = () => {
           <div className="col-lg-2">
             <div className="right">
               <ul>
-                <Link to={"my-orders"} style={{color: '#fff', textDecoration: 'none'}}>
-                  <li><i class="fa-solid fa-cart-arrow-down"></i> My Orders</li>
+                <Link to={"my-orders"} style={{ color: '#fff', textDecoration: 'none' }}>
+                  <li><i className="fa-solid fa-cart-arrow-down"></i> My Orders</li>
                 </Link>
                 {/* Conditionally render username or 'My Account' */}
-                <Link to={user && user.id ? `/website/user-details/${user.id}` : '#'} style={{color: '#fff', textDecoration: 'none'}}>
+                <Link to={user && user.id ? `/website/user-details/${user.id}` : '#'} style={{ color: '#fff', textDecoration: 'none' }}>
                   <li><i className="fa-solid fa-user"></i> {user && user.name ? user.name : 'My Account'}</li>
                 </Link>
               </ul>

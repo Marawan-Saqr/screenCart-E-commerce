@@ -16,3 +16,19 @@
 .text-center {
   text-align: center;
 }
+
+
+.my-orders {
+  margin-bottom: 20px;
+}
+
+.card-shadow {
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(209, 0, 36, 0.3);
+  border: 1px solid #d10024;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card-shadow:hover {
+  box-shadow: 0 6px 12px rgba(209, 0, 36, 0.5);
+}

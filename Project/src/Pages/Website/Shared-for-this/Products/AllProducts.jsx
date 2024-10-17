@@ -2,14 +2,14 @@ import './AllProducts.css';
 import React, { useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalfAlt, faStar as faEmptyStar } from '@fortawesome/free-solid-svg-icons';
-import { useTitle } from '../../Hooks/titleContext';
+import { useTitle } from '../../../../Hooks/titleContext';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, closeMessage } from '../../Redux/slices/cart.slice';
-import { addToWishlist, closeWishlistMessage } from '../../Redux/slices/wishlist.slice';
-import components from '../../Shared/Styled-components/StyledComponents';
+import { addToCart, closeMessage } from '../../../../Redux/slices/cart.slice';
+import { addToWishlist, closeWishlistMessage } from '../../../../Redux/slices/wishlist.slice';
+import components from '../../../../Shared/Styled-components/StyledComponents';
 import { Link } from 'react-router-dom';
-import Loader from '../../Shared/Loader/Loader';
-import { useGetAllProductsQuery } from '../../Redux/queries/products.query';
+import Loader from '../../../../Shared/Loader/Loader';
+import { useGetAllProductsQuery } from '../../../../Redux/queries/website.query';
 
 const AllProducts = ({ limit, ratingFilter }) => {
 

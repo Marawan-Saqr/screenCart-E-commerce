@@ -35,9 +35,9 @@ const UserDetails = () => {
     <div className="user-details">
       <div className="container">
         <h1 className="user-name">Welcome {username}</h1>
-        <components.MainButton onClick={handleLogout}>
+        <components.BlackButton onClick={handleLogout}>
           Logout
-        </components.MainButton>
+        </components.BlackButton>
       </div>
     </div>
   );

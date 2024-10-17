@@ -1,5 +1,5 @@
 {
-  "users": [
+  "websiteUsers": [
     {
       "id": "1",
       "name": "Marawan",
@@ -53,6 +53,11 @@
       "name": "Saqrw",
       "password": "12345",
       "role": "user"
+    },
+    {
+      "id": "d12a",
+      "name": "Yasser2000",
+      "password": "12345"
     }
   ],
   "products": [
@@ -229,6 +234,62 @@
         }
       ],
       "createdAt": 1729099864637
+    },
+    {
+      "id": "410b",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "2",
+          "name": "laptop hp 2014",
+          "details": "Very Speed Laptop",
+          "price": 270,
+          "category": "laptops",
+          "rate": 2,
+          "productImage": "laptop-hp-2014.png",
+          "qty": 1
+        },
+        {
+          "id": "10",
+          "name": "asus laptop",
+          "details": "Small And Speed Laptop",
+          "price": 150,
+          "category": "laptops",
+          "rate": 1,
+          "productImage": "asus-laptop.png",
+          "qty": 2
+        },
+        {
+          "id": "7",
+          "name": "screen HP Curve",
+          "details": "curve screens with beautifull colors",
+          "price": 120,
+          "category": "computers",
+          "rate": 1,
+          "productImage": "screen-HP-Curve.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729164002067
+    },
+    {
+      "id": "8339",
+      "userId": "2",
+      "userName": "Ahmed",
+      "products": [
+        {
+          "id": "1",
+          "name": "laptop hp 2010",
+          "details": "Small And Speed Laptop",
+          "price": 130,
+          "category": "laptops",
+          "rate": 4,
+          "productImage": "laptop-hp-2010.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729170696551
     }
   ]
 }

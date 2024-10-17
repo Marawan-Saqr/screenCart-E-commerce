@@ -1,4 +1,4 @@
-import AllProducts from '../../../Shared/Products/AllProducts';
+import AllProducts from '../../Website/Shared-for-this/Products/AllProducts';
 import { TitleProvider } from '../../../Hooks/titleContext';
 
 

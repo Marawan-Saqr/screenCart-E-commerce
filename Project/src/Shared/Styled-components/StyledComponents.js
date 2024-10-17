@@ -15,9 +15,24 @@ const MainButton = styled.button`
   }
 `;
 
+const BlackButton = styled.button`
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 21px;
+  font-size: 17px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  &:hover {
+    background-color: black;
+    transition: 0.5s;
+  }
+`;
+
 const mainSpan = styled.span`
   color: #d10024;
 `;
 
-const components = { MainButton, mainSpan };
+const components = { MainButton, mainSpan, BlackButton };
 export default components;

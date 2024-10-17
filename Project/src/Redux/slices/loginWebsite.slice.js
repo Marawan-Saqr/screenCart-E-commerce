@@ -43,7 +43,7 @@ export const loginUser = (name, password) => async (dispatch) => {
   dispatch(loginStart());
 
   try {
-    const response = await axios.get(`http://localhost:3001/users`);
+    const response = await axios.get(`http://localhost:3001/websiteUsers`);
 
     // Handle case when no users are returned from the API
     if (!response.data || response.data.length === 0) {
@@ -64,16 +64,18 @@ export const loginUser = (name, password) => async (dispatch) => {
       });
       dispatch(loginFailure('Invalid credentials'));
     } else {
+      // Storing user data in localStorage and dispatching success immediately
+      localStorage.setItem('user-data', JSON.stringify(selectedUser));
+      dispatch(loginSuccess(selectedUser));
+
+      // Manually dispatch a storage event to update other components
+      window.dispatchEvent(new Event("storage")); // Force storage event trigger
+
+      // Displaying success message
       Swal.fire({
         title: 'Login Successfully!',
         text: 'Now You Are Moved To Website!',
         icon: 'success',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // Storing user data in localStorage
-          localStorage.setItem('user-data', JSON.stringify(selectedUser));
-          dispatch(loginSuccess(selectedUser));
-        }
       });
     }
   } catch (error) {
