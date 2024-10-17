@@ -45,15 +45,21 @@ export const loginUser = (name, password) => async (dispatch) => {
   try {
     const response = await axios.get(`http://localhost:3001/websiteUsers`);
 
+    // Log API response for debugging
+    console.log('API Response:', response.data);
+
     // Handle case when no users are returned from the API
     if (!response.data || response.data.length === 0) {
-      throw new Error("No users found");
+      throw new Error("No users found in the database.");
     }
 
     // Finding the user with the matching credentials
     const selectedUser = response.data.find(
       (user) => user.name === name && user.password === password
     );
+
+    // Log selected user for debugging
+    console.log('Selected User:', selectedUser);
 
     // If the user is not found
     if (!selectedUser) {
@@ -64,7 +70,7 @@ export const loginUser = (name, password) => async (dispatch) => {
       });
       dispatch(loginFailure('Invalid credentials'));
     } else {
-      // Storing user data in localStorage and dispatching success immediately
+      // Storing user data in localStorage and dispatching success
       localStorage.setItem('user-data', JSON.stringify(selectedUser));
       dispatch(loginSuccess(selectedUser));
 
