@@ -2,11 +2,11 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
-import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { useDispatch } from 'react-redux';
 import { registerStart, registerSuccess, registerFailure } from '../../../Redux/slices/register.slice';  // Import actions
+import { useNavigate, Link } from "react-router-dom";
+import { useRegisterUserMutation } from '../../../Redux/queries/website.query'; // Import the mutation hook
 
 import "./Register.css";
 
@@ -34,33 +34,30 @@ const Register = () => {
   });
 
   // Register Function
+  const [registerUser] = useRegisterUserMutation(); // Get the mutation function
+
   const registerFunction = handleSubmit(async (data) => {
     dispatch(registerStart());  // Dispatch register start
 
     try {
-      const response = await axios.get("http://localhost:3001/websiteUsers");
-      const existingUser = response.data.find(
-        (user) => user.name === data.name
-      );
+      // Call the register API from website query (Mutation)
+      const response = await registerUser(data);
 
-      if (existingUser) {
+      if (response.error) {
         Swal.fire({
           title: "Register Failed!",
-          text: "User already exists!",
+          text: response.error.data?.message || "Something went wrong.",
           icon: "error"
         });
-        dispatch(registerFailure("User already exists!"));  // Dispatch failure
+        dispatch(registerFailure(response.error.message));  // Dispatch failure
       } else {
         Swal.fire({
           title: "Register Successfully!",
           text: "Now You Are Moved To Login!",
           icon: "success"
-        }).then(async (result) => {
-          if (result.isConfirmed) {
-            await axios.post("http://localhost:3001/websiteUsers", data);
-            dispatch(registerSuccess());  // Dispatch success
-            navigate("/login");
-          }
+        }).then(() => {
+          dispatch(registerSuccess());  // Dispatch success
+          navigate("/login");
         });
       }
     } catch (error) {

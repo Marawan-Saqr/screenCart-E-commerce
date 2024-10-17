@@ -10,7 +10,15 @@ export const websiteQuery = createApi({
     getAllOrders: builder.query({
       query: () => '/orders',
     }),
+    // Add the register API endpoint
+    registerUser: builder.mutation({
+      query: (userData) => ({
+        url: '/websiteUsers',
+        method: 'POST',
+        body: userData,
+      }),
+    }),
   }),
 });
 
-export const { useGetAllProductsQuery, useGetAllOrdersQuery } = websiteQuery;
+export const { useGetAllProductsQuery, useGetAllOrdersQuery, useRegisterUserMutation } = websiteQuery;
