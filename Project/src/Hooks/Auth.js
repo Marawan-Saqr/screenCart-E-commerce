@@ -9,11 +9,14 @@ const useAuth = () => {
   const user = useSelector(state => state.loginWebsite.userData);
   const navigate = useNavigate();
 
+
+  // Check If User Is Loggedin Before Any Action
   const redirect = () => {
     if(!isLoggedIn) {
       navigate("/login");
     }
   }
+
 
   // UseEffect
   useEffect(() => {
@@ -26,5 +29,6 @@ const useAuth = () => {
 
 
   return {isLoggedIn, redirect};
+
 }
 export default useAuth;

@@ -4,16 +4,19 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Swal from 'sweetalert2';
 import { useDispatch } from 'react-redux';
-import { registerStart, registerSuccess, registerFailure } from '../../../Redux/slices/register.slice';  // Import actions
+import { registerStart, registerSuccess, registerFailure } from '../../../../Redux/slices/register.slice';
 import { useNavigate, Link } from "react-router-dom";
-import { useRegisterUserMutation } from '../../../Redux/queries/website.query'; // Import the mutation hook
-
+import { useRegisterUserMutation } from '../../../../Redux/queries/website.query';
 import "./Register.css";
 
-// Functional Component
+
+
 const Register = () => {
+
+  // Component States
   const navigate = useNavigate();
-  const dispatch = useDispatch();  // Redux dispatch function
+  const dispatch = useDispatch();
+
 
   // Zod Schema
   const schema = z.object({
@@ -27,36 +30,37 @@ const Register = () => {
       .max(30, 'Password cant be more than 20 characters'),
   });
 
+
   // React Hook Form Destruct
   const { register, handleSubmit, formState: { errors } } = useForm({
     mode: "onTouched", 
     resolver: zodResolver(schema),
   });
 
+
   // Register Function
-  const [registerUser] = useRegisterUserMutation(); // Get the mutation function
+  const [registerUser] = useRegisterUserMutation();
 
+
+  // Handle Submit Function
   const registerFunction = handleSubmit(async (data) => {
-    dispatch(registerStart());  // Dispatch register start
-
+    dispatch(registerStart());
     try {
-      // Call the register API from website query (Mutation)
       const response = await registerUser(data);
-
       if (response.error) {
         Swal.fire({
           title: "Register Failed!",
           text: response.error.data?.message || "Something went wrong.",
           icon: "error"
         });
-        dispatch(registerFailure(response.error.message));  // Dispatch failure
+        dispatch(registerFailure(response.error.message));
       } else {
         Swal.fire({
           title: "Register Successfully!",
           text: "Now You Are Moved To Login!",
           icon: "success"
         }).then(() => {
-          dispatch(registerSuccess());  // Dispatch success
+          dispatch(registerSuccess());
           navigate("/login");
         });
       }
@@ -66,9 +70,10 @@ const Register = () => {
         text: "Something went wrong. Please try again.",
         icon: "error"
       });
-      dispatch(registerFailure(error.message));  // Dispatch failure
+      dispatch(registerFailure(error.message));
     }
   });
+
 
   return (
     <section className="register-box">
@@ -90,6 +95,7 @@ const Register = () => {
                   You Will Login After Register So Remember Username & Password
                 </p>
 
+
                 <div className="form-group">
                   <label style={{ fontWeight: 'bold', fontStyle: 'italic' }}>Username</label>
                   <input
@@ -100,6 +106,7 @@ const Register = () => {
                   />
                   {errors.name && <p className="text-danger">{errors.name.message}</p>}
                 </div>
+
 
                 {/* Password */}
                 <div className="form-group">
@@ -112,6 +119,7 @@ const Register = () => {
                   />
                   {errors.password && <p className="text-danger">{errors.password.message}</p>}
                 </div>
+
 
                 {/* Submit Button */}
                 <button type="submit" className="btn button">

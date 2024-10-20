@@ -10,15 +10,18 @@ const ProductDetails = () => {
   const params = useParams();
   const [product, setProduct] = useState(null);
 
+
   // Get Product Details Function
   const getProductDetails = async () => {
     await axios.get(`http://localhost:3001/products/${params.PRODUCTID}`).then((response) => setProduct(response.data));
   }
 
+
   // UseEffect
   useEffect(() => {
     getProductDetails();
   }, [params.PRODUCTID]);
+
 
   return (
     <div className="product-details">

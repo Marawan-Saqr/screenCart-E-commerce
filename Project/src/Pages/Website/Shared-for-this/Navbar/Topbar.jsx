@@ -7,19 +7,22 @@ import { useState, useEffect } from 'react';
 import { useGetAllProductsQuery } from '../../../../Redux/queries/website.query';
 
 const Topbar = () => {
-  const { data: products, isLoading, error } = useGetAllProductsQuery(); // Fetch products using the Redux query
+
+  // Component States
+  const { data: products, isLoading, error } = useGetAllProductsQuery();
   const [categories, setCategories] = useState([]);
 
+
+  // UseEffect
   useEffect(() => {
     if (products) {
-      // Extract unique categories only if products data is available
       const uniqueCategories = [...new Set(products.map(product => product.category))];
-      setCategories(uniqueCategories); // Set unique categories to state
+      setCategories(uniqueCategories);
     }
-  }, [products]); // Re-run effect when products data changes
+  }, [products]);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error fetching categories.</div>;
 
-  if (isLoading) return <div>Loading...</div>; // Handle loading state
-  if (error) return <div>Error fetching categories.</div>; // Handle error state
 
   return (
     <Navbar expand="lg" className="topbar bg-body-tertiary">

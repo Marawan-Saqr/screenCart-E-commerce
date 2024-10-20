@@ -70,7 +70,6 @@ const GetByCategory = () => {
   return (
     <div className="get-products-by-category">
       <div className="container">
-
         {/* Show Cart and Wishlist Messages */}
         {cartOpen && (
           <div className="message cart-message">

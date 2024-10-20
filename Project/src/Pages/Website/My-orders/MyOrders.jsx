@@ -5,13 +5,17 @@ import { useGetAllOrdersQuery } from "../../../Redux/queries/website.query";
 import Swal from "sweetalert2";
 
 const MyOrders = () => {
-  const { data: orders } = useGetAllOrdersQuery();
 
+  // Component States
+  const { data: orders } = useGetAllOrdersQuery();
   const shippingCost = 5;
 
+
+  //UseEffect
   useEffect(() => {
     console.log(orders);
   }, [orders]);
+
 
   return (
     <div className="my-orders">
@@ -24,7 +28,6 @@ const MyOrders = () => {
                 0
               );
               const grandTotal = totalPrice + shippingCost;
-
               return (
                 <Col key={index} sm={12} md={6} lg={12} className="mb-4">
                   <Card className="shadow-sm card-shadow">
@@ -81,25 +84,21 @@ const MyOrders = () => {
                           </div>
                         ))}
                       </div>
-
                       <div className="d-flex justify-content-between">
                         <p className="fw-bold">
                           Total Price: ${totalPrice.toFixed(2)}
                         </p>
                       </div>
-
                       <div className="d-flex justify-content-between">
                         <p className="fw-bold">
                           Shipping: ${shippingCost.toFixed(2)}
                         </p>
                       </div>
-
                       <div className="d-flex justify-content-between">
                         <p className="fw-bold">
                           Grand Total: ${grandTotal.toFixed(2)}
                         </p>
                       </div>
-
                       <Button
                         variant="info"
                         onClick={() =>

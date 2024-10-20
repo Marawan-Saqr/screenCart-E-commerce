@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Auth from "./Pages/Auth/Auth.jsx";
-import Login from "./Pages/Auth/Login/Login.jsx";
-import Register from "./Pages/Auth/Register/Register.jsx";
+import Auth from "./Pages/Website/Auth/Auth.jsx";
+import Login from "./Pages/Website/Auth/Login/Login.jsx";
+import Register from "./Pages/Website/Auth/Register/Register.jsx";
 import Website from "./Pages/Website/Website.jsx";
 import UserDetails from './Pages/Website/User-details/UserDetails.jsx';
 import Wishlist from "./Pages/Website/Shared-for-this/Header/Wishlist/Wishlist.jsx";

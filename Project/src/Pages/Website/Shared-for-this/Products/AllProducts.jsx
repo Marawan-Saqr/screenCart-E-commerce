@@ -13,11 +13,13 @@ import { useGetAllProductsQuery } from '../../../../Redux/queries/website.query'
 
 const AllProducts = ({ limit, ratingFilter }) => {
 
+  // Component States
   const { data: products, isLoading } = useGetAllProductsQuery();
   const dispatch = useDispatch(); 
   const title = useTitle();
   const { message: cartMessage, open: cartOpen } = useSelector(state => state.cart);
   const { message: wishlistMessage, open: wishlistOpen } = useSelector(state => state.wishlist);
+
 
   // UseEffect for cart message
   useEffect(() => {
@@ -29,6 +31,7 @@ const AllProducts = ({ limit, ratingFilter }) => {
     }
   }, [cartOpen, dispatch]);
 
+
   // UseEffect for wishlist message
   useEffect(() => {
     if (wishlistOpen) {
@@ -38,6 +41,7 @@ const AllProducts = ({ limit, ratingFilter }) => {
       return () => clearTimeout(timer);
     }
   }, [wishlistOpen, dispatch]);
+
 
   // Render Stars Function
   const renderStars = (rate) => {
@@ -57,10 +61,12 @@ const AllProducts = ({ limit, ratingFilter }) => {
     );
   };
 
+
   // Filter Products based on rating
   const filteredProducts = products
     ? (ratingFilter ? products.filter(product => product.rate === ratingFilter) : products)
     : [];
+
 
   return (
     <div className="all-products">

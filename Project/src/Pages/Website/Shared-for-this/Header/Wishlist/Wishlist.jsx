@@ -7,8 +7,11 @@ import components from '../../../../../Shared/Styled-components/StyledComponents
 import { Link } from 'react-router-dom';
 
 const Wishlist = () => {
+
+  // Component States
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.wishlist.items);
+
 
   return (
     <Container className="my-5">

@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import './ContactBar.css';
 
 const ContactBar = () => {
+
   // Component States
   const [user, setUser] = useState(null);
+
 
   // UseEffect to load user from localStorage when the component mounts
   useEffect(() => {
@@ -13,6 +15,7 @@ const ContactBar = () => {
       const userData = JSON.parse(storedUserData);
       setUser(userData);
     }
+
 
     // Listen to localStorage changes (optional for cross-tab updates)
     const handleStorageChange = () => {
@@ -24,13 +27,14 @@ const ContactBar = () => {
       }
     };
 
+
     // Add event listener for storage changes
     window.addEventListener('storage', handleStorageChange);
-
     return () => {
       window.removeEventListener('storage', handleStorageChange);
     };
   }, []);
+
 
   return (
     <div className="contact-bar">
