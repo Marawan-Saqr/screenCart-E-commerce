@@ -30,10 +30,10 @@ const cartSlice = createSlice({
             ? { ...item, qty: item.qty + 1 }
             : item
         );
-        state.message = `${product.name} quantity increased!`;  // Message updated for quantity increment
+        state.message = `${product.name} quantity increased!`;
       } else {
         state.cartItems.push({ ...product, qty: 1 });
-        state.message = `${product.name} added to your cart!`;  // Message for new item
+        state.message = `${product.name} added to your cart!`;
       }
       
       saveCartToLocalStorage(state.cartItems);

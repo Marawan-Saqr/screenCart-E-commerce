@@ -26,6 +26,7 @@ const UserDetails = () => {
   // Handle Logout
   const handleLogout = () => {
     localStorage.removeItem('user-data');
+    localStorage.removeItem('cartItems');
     dispatch(logout());
     navigate('/login');
   };

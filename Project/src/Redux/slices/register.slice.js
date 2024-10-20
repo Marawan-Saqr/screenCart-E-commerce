@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Initial state for registration
 const initialState = {
-  loading: false, // Whether registration is in progress
-  success: false, // Whether registration was successful
-  error: null, // Holds any errors encountered during registration
+  loading: false,
+  success: false,
+  error: null,
 };
 
 // Define the registration slice

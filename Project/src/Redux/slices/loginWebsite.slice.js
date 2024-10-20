@@ -36,8 +36,10 @@ const loginWebsiteSlice = createSlice({
   },
 });
 
+// Action exports
 export const { loginStart, loginSuccess, loginFailure, logout } = loginWebsiteSlice.actions;
 
+// Async action for logging in
 export const loginUser = (name, password) => async (dispatch) => {
   dispatch(loginStart());
   try {
@@ -48,7 +50,7 @@ export const loginUser = (name, password) => async (dispatch) => {
       Swal.fire('Oops...', 'Invalid Username or Password!', 'error');
       dispatch(loginFailure('Invalid credentials'));
     } else {
-      dispatch(loginSuccess(selectedUser));
+      dispatch(loginSuccess(selectedUser)); // Dispatch the user data
       Swal.fire('Success', 'Login Successfully!', 'success');
     }
   } catch (error) {

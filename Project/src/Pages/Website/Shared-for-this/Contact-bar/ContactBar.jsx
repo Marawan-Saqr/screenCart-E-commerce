@@ -49,7 +49,7 @@ const ContactBar = () => {
               </ul>
             </div>
           </div>
-          <div className="col-lg-2">
+          <div className="col-lg-3">
             <div className="right">
               <ul>
                 <Link to={"my-orders"} style={{ color: '#fff', textDecoration: 'none' }}>

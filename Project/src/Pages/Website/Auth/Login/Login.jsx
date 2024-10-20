@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../../../Redux/slices/loginWebsite.slice";
 
 const Login = () => {
-
   // Component States
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -89,7 +88,6 @@ const Login = () => {
                   LOGIN
                 </button>
               </form>
-
 
               <div className="text-end mt-3">
                 <Link to="/register">Sign Up</Link>
