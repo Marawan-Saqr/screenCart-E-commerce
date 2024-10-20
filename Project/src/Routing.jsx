@@ -14,14 +14,12 @@ import GetByCategory from "./Pages/Website/Get-by-category/GetByCategory.jsx";
 import MyOrders from './Pages/Website/My-orders/MyOrders.jsx';
 import Dashboard from './Pages/Dashboard/Dashboard.jsx';
 import NotFound from "./Shared/Not-found/NotFound.jsx";
-
+import PrivateRoute from './Shared/Private-router/privateRouter.jsx';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-
-
         {/* Auth Routes */}
         <Route path="/" element={<Auth />}>
           <Route index element={<Login />} />
@@ -29,9 +27,15 @@ const Router = () => {
           <Route path="register" element={<Register />} />
         </Route>
 
-
         {/* Website Routes */}
-        <Route path="website" element={<Website />}>
+        <Route
+          path="website"
+          element={
+            <PrivateRoute>
+              <Website />
+            </PrivateRoute>
+          }
+        >
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="wishlist" element={<Wishlist />} />
@@ -43,10 +47,8 @@ const Router = () => {
           <Route path="my-orders" element={<MyOrders />} />
         </Route>
 
-
         {/* Admin Dashboard Route */}
         <Route path="dashboard" element={<Dashboard />} />
-
 
         {/* Not Found Route */}
         <Route path="*" element={<NotFound />} />

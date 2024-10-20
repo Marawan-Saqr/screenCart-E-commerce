@@ -15,7 +15,7 @@ const Collection = () => {
               <div className="overlay"></div>
               <div className="text-content">
                 <h2>Laptop Products</h2>
-                <Link to={`/website/products-page`} className="shop-now-btn">SHOP NOW ➔</Link>
+                <Link to={`/website/get-by-category/laptops`} className="shop-now-btn">SHOP NOW ➔</Link>
               </div>
             </div>
           </div>
@@ -25,7 +25,7 @@ const Collection = () => {
               <div className="overlay"></div>
               <div className="text-content">
                 <h2>Headset Products</h2>
-                <Link to={`/website/products-page`} className="shop-now-btn">SHOP NOW ➔</Link>
+                <Link to={`/website/get-by-category/headsets`} className="shop-now-btn">SHOP NOW ➔</Link>
               </div>
             </div>
           </div>
@@ -35,7 +35,7 @@ const Collection = () => {
               <div className="overlay"></div>
               <div className="text-content">
                 <h2>Cameras Products</h2>
-                <Link to={`/website/products-page`} className="shop-now-btn">SHOP NOW ➔</Link>
+                <Link to={`/website/get-by-category/cameras`} className="shop-now-btn">SHOP NOW ➔</Link>
               </div>
             </div>
           </div>

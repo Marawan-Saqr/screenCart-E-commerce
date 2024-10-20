@@ -23,6 +23,7 @@ const Wishlist = () => {
                 <Col key={index} sm={12} md={6} lg={4} className="mb-4">
                   <Card className="shadow-sm">
                     <Card.Body>
+                      <img src={"http://localhost:3001/images/" + product.productImage} alt="product" className='img-fluid' />
                       <Card.Title>{product.name}</Card.Title>
                       <Link to={`/website/get-by-category/${product.category}`}>{product.category}</Link>
                       <Card.Text>{product.details}</Card.Text>

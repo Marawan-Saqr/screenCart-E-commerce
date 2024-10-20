@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-// Initial state, checking localStorage for persisted userData
 const initialState = {
   userData: JSON.parse(localStorage.getItem('user-data')) || null,
   loading: false,
@@ -22,6 +21,7 @@ const loginWebsiteSlice = createSlice({
       state.loading = false;
       state.userData = action.payload;
       state.isLoggedIn = true;
+      localStorage.setItem('user-data', JSON.stringify(action.payload));
     },
     loginFailure: (state, action) => {
       state.loading = false;
@@ -38,60 +38,22 @@ const loginWebsiteSlice = createSlice({
 
 export const { loginStart, loginSuccess, loginFailure, logout } = loginWebsiteSlice.actions;
 
-// This is the login action that will be dispatched
 export const loginUser = (name, password) => async (dispatch) => {
   dispatch(loginStart());
-
   try {
-    const response = await axios.get(`http://localhost:3001/websiteUsers`);
+    const response = await axios.get('http://localhost:3001/websiteUsers');
+    const selectedUser = response.data.find((user) => user.name === name && user.password === password);
 
-    // Log API response for debugging
-    console.log('API Response:', response.data);
-
-    // Handle case when no users are returned from the API
-    if (!response.data || response.data.length === 0) {
-      throw new Error("No users found in the database.");
-    }
-
-    // Finding the user with the matching credentials
-    const selectedUser = response.data.find(
-      (user) => user.name === name && user.password === password
-    );
-
-    // Log selected user for debugging
-    console.log('Selected User:', selectedUser);
-
-    // If the user is not found
     if (!selectedUser) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Invalid Username or Password!',
-      });
+      Swal.fire('Oops...', 'Invalid Username or Password!', 'error');
       dispatch(loginFailure('Invalid credentials'));
     } else {
-      // Storing user data in localStorage and dispatching success
-      localStorage.setItem('user-data', JSON.stringify(selectedUser));
       dispatch(loginSuccess(selectedUser));
-
-      // Manually dispatch a storage event to update other components
-      window.dispatchEvent(new Event("storage")); // Force storage event trigger
-
-      // Displaying success message
-      Swal.fire({
-        title: 'Login Successfully!',
-        text: 'Now You Are Moved To Website!',
-        icon: 'success',
-      });
+      Swal.fire('Success', 'Login Successfully!', 'success');
     }
   } catch (error) {
-    console.error('Login error:', error);
-    dispatch(loginFailure(error.message || 'Something went wrong during login!'));
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Something went wrong during login!',
-    });
+    dispatch(loginFailure(error.message));
+    Swal.fire('Error', 'Something went wrong!', 'error');
   }
 };
 
