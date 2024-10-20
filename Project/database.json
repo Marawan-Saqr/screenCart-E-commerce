@@ -3,56 +3,47 @@
     {
       "id": "1",
       "name": "Marawan",
-      "password": "4857463",
-      "role": "user"
+      "password": "4857463"
     },
     {
       "id": "2",
       "name": "Ahmed",
-      "password": "ahmed7493",
-      "role": "user"
+      "password": "ahmed7493"
     },
     {
       "id": "3",
       "name": "Norhan",
-      "password": "norhan@#7493",
-      "role": "user"
+      "password": "norhan@#7493"
     },
     {
       "id": "4",
       "name": "Sara",
-      "password": "sara@gmail",
-      "role": "user"
+      "password": "sara@gmail"
     },
     {
       "id": "5",
       "name": "Khaled",
-      "password": "hello4059493Kha",
-      "role": "user"
+      "password": "hello4059493Kha"
     },
     {
       "id": "6",
       "name": "Mohmed Hussien",
-      "password": "12345",
-      "role": "user"
+      "password": "12345"
     },
     {
       "id": "7",
       "name": "Yassmina ",
-      "password": "12345",
-      "role": "user"
+      "password": "12345"
     },
     {
       "id": "8",
       "name": "Yosra",
-      "password": "12345",
-      "role": "user"
+      "password": "12345"
     },
     {
       "id": "9cad",
       "name": "Saqrw",
-      "password": "12345",
-      "role": "user"
+      "password": "12345"
     },
     {
       "id": "d12a",
@@ -295,6 +286,32 @@
         }
       ],
       "createdAt": 1729170696551
+    }
+  ],
+  "dashboardUsers": [
+    {
+      "id": "1",
+      "name": "Maro Saqr",
+      "password": "4857463",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "Mohmed Yasser",
+      "password": "4947163",
+      "role": "user"
+    },
+    {
+      "id": "3",
+      "name": "Salma Essam",
+      "password": "1933493",
+      "role": "user"
+    },
+    {
+      "id": "4",
+      "name": "Mahmoud Nasr",
+      "password": "3456335",
+      "role": "user"
     }
   ]
 }

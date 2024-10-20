@@ -38,6 +38,7 @@ const Topbar = () => {
                 {category}
               </Link>
             ))}
+            <Link className="nav-link" style={{ fontWeight: 'bold' }} to={"/dashboard"}>Dashboard</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

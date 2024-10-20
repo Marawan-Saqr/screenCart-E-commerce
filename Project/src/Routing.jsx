@@ -15,6 +15,9 @@ import MyOrders from './Pages/Website/My-orders/MyOrders.jsx';
 import Dashboard from './Pages/Dashboard/Dashboard.jsx';
 import NotFound from "./Shared/Not-found/NotFound.jsx";
 import PrivateRoute from './Shared/Private-router/privateRouter.jsx';
+import LoginDashboard from './Pages/Dashboard/Login-dashboard/LoginDashboard.jsx';
+import RegisterDashboard from './Pages/Dashboard/Register-dashboard/RegisterDashboard.jsx';
+
 
 const Router = () => {
   return (
@@ -48,7 +51,12 @@ const Router = () => {
         </Route>
 
         {/* Admin Dashboard Route */}
-        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="dashboard" element={<Dashboard />}>
+          <Route index element={<LoginDashboard />} />
+          <Route index path="login-dashboard" element={<LoginDashboard />} />
+          <Route path="register-dashboard" element={<RegisterDashboard />} />
+        </Route>
+        
 
         {/* Not Found Route */}
         <Route path="*" element={<NotFound />} />
