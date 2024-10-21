@@ -1,5 +1,4 @@
-/* Container for background and centering the login box */
-.login-container {
+.login-dashboard .login-container {
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -8,15 +7,13 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Styling the login box with a glassmorphism effect */
-.login-box {
+.login-dashboard .login-box {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(15px);
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   width: 350px;
-  text-align: center;
   color: white;
   animation: fadeIn 1s ease-in-out;
 }
@@ -32,42 +29,39 @@
   }
 }
 
-/* Styling the heading */
-.login-box h2 {
+.login-dashboard .login-box h2 {
   margin-bottom: 30px;
   font-size: 26px;
   letter-spacing: 1px;
 }
 
-/* Input fields and icon styling */
-.input-group {
+.login-dashboard .input-group {
   position: relative;
   margin-bottom: 25px;
 }
 
-.input-group input {
+.login-dashboard .input-group input {
   width: 100%;
   padding: 12px 45px 12px 15px;
   border-radius: 50px;
   border: none;
   background: rgba(255, 255, 255, 0.3);
-  color: #fff;
+  color: black;
   font-size: 16px;
   box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
   outline: none;
   transition: background-color 0.3s ease;
 }
 
-.input-group input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+.login-dashboard .input-group input::placeholder {
+  color: #575757;
 }
 
-.input-group input:focus {
+.login-dashboard .input-group input:focus {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Input icon */
-.icon {
+.login-dashboard .icon {
   position: absolute;
   top: 50%;
   left: 15px;
@@ -75,8 +69,7 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Styling the login button */
-.login-btn {
+.login-dashboard .login-btn {
   width: 100%;
   padding: 12px;
   background-color: #ff6b6b;
@@ -90,27 +83,25 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.login-btn:hover {
+.login-dashboard .login-btn:hover {
   background-color: #ff3f3f;
   transform: translateY(-3px);
 }
 
-/* Styling the forgot password link */
-.forgot-password {
+.login-dashboard .forgot-password {
   margin-top: 15px;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
 }
 
-.forgot-password:hover {
+.login-dashboard .forgot-password:hover {
   color: #fff;
   text-decoration: underline;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
-  .login-box {
+  .login-dashboard .login-box {
     width: 90%;
     padding: 30px;
   }

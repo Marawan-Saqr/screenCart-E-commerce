@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Auth from "./Pages/Website/Auth/Auth.jsx";
 import Login from "./Pages/Website/Auth/Login/Login.jsx";
 import Register from "./Pages/Website/Auth/Register/Register.jsx";
@@ -12,23 +12,29 @@ import ProductsPage from "./Pages/Website/Products-page/ProductsPage.jsx";
 import ProductDetails from "./Pages/Website/Product-details/ProductDetails.jsx";
 import GetByCategory from "./Pages/Website/Get-by-category/GetByCategory.jsx";
 import MyOrders from './Pages/Website/My-orders/MyOrders.jsx';
-import Dashboard from './Pages/Dashboard/Dashboard.jsx';
-import NotFound from "./Shared/Not-found/NotFound.jsx";
 import PrivateRoute from './Shared/Private-router/privateRouter.jsx';
-import LoginDashboard from './Pages/Dashboard/Login-dashboard/LoginDashboard.jsx';
-import RegisterDashboard from './Pages/Dashboard/Register-dashboard/RegisterDashboard.jsx';
+import Dashboard from './Pages/Dashboard/Dashboard.jsx';
+import AuthDashboard from './Pages/Dashboard/Auth-dashboard/AuthDashboard.jsx';
+import LoginDashboard from './Pages/Dashboard/Auth-dashboard/Login-dashboard/LoginDashboard.jsx';
+import RegisterDashboard from './Pages/Dashboard/Auth-dashboard/Register-dashboard/RegisterDashboard.jsx';
+import TableData from './Pages/Dashboard/Table-data/TableData.jsx';
+import NotFound from "./Shared/Not-found/NotFound.jsx";
+
 
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+
+
         {/* Auth Routes */}
         <Route path="/" element={<Auth />}>
           <Route index element={<Login />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
+
 
         {/* Website Routes */}
         <Route
@@ -50,13 +56,18 @@ const Router = () => {
           <Route path="my-orders" element={<MyOrders />} />
         </Route>
 
-        {/* Admin Dashboard Route */}
+
+        {/* Dashboard Route */}
         <Route path="dashboard" element={<Dashboard />}>
-          <Route index element={<LoginDashboard />} />
-          <Route index path="login-dashboard" element={<LoginDashboard />} />
-          <Route path="register-dashboard" element={<RegisterDashboard />} />
+          <Route index element={<Navigate to="auth-dashboard" />} />
+          <Route path="auth-dashboard" element={<AuthDashboard />}>
+            <Route index element={<LoginDashboard />} />
+            <Route path="login-dashboard" element={<LoginDashboard />} />
+            <Route path="register-dashboard" element={<RegisterDashboard />} />
+          </Route>
+          <Route path="table-data" element={<TableData />} />
         </Route>
-        
+
 
         {/* Not Found Route */}
         <Route path="*" element={<NotFound />} />
