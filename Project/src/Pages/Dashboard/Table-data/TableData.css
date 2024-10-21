@@ -1,0 +1,124 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #181818; /* Dark background */
+}
+
+/* Dashboard Layout */
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #1f1f1f; /* Darker gray for sidebar */
+  padding: 20px;
+  color: #ffffff; /* White text */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
+  position: relative;
+}
+
+.sidebar-title {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase; /* Uppercase for modern touch */
+}
+
+.menu {
+  list-style-type: none;
+}
+
+.menu-item {
+  padding: 15px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  border-radius: 5px;
+  position: relative;
+}
+
+.menu-item:hover,
+.menu-item.active {
+  background-color: #323232; /* Darker gray for active item */
+  transform: translateX(5px); /* Slight slide effect */
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #242424; /* Dark background for main content */
+  overflow-y: auto; /* Add scroll if content exceeds view */
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  color: #ffffff; /* White text for the title */
+  margin-bottom: 20px;
+}
+
+/* Table Styling */
+.table-container {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #2c2c2c; /* Darker background for the table */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
+  border-radius: 8px;
+  overflow: hidden; /* Rounded corners */
+}
+
+.data-table th,
+.data-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #444; /* Darker border color */
+}
+
+.data-table th {
+  background-color: #1f1f1f; /* Darker header */
+  color: #ffffff; /* White text */
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #383838; /* Slightly lighter dark gray for even rows */
+}
+
+/* Status Styling */
+.status-active {
+  color: #28a745; /* Green for active */
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: #dc3545; /* Red for inactive */
+  font-weight: bold;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .data-table th,
+  .data-table td {
+    padding: 0.5rem;
+  }
+
+  .dashboard-title {
+    font-size: 1.8rem;
+  }
+
+  .sidebar {
+    width: 200px; /* Adjust sidebar width for smaller screens */
+  }
+}

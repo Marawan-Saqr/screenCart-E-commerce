@@ -39,7 +39,8 @@ const LoginDashboard = () => {
         id: userFound.id,
         name: userFound.name,
         password: userFound.password,
-        role: userFound.role
+        role: userFound.role,
+        status: "Active"
       };
       localStorage.setItem("user", JSON.stringify(userObject));
       navigate("/dashboard/table-data");

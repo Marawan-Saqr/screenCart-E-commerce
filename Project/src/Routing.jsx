@@ -18,6 +18,8 @@ import AuthDashboard from './Pages/Dashboard/Auth-dashboard/AuthDashboard.jsx';
 import LoginDashboard from './Pages/Dashboard/Auth-dashboard/Login-dashboard/LoginDashboard.jsx';
 import RegisterDashboard from './Pages/Dashboard/Auth-dashboard/Register-dashboard/RegisterDashboard.jsx';
 import TableData from './Pages/Dashboard/Table-data/TableData.jsx';
+import Users from './Pages/Dashboard/Table-data/Users/Users.jsx';
+import Products from './Pages/Dashboard/Table-data/Products/Products.jsx';
 import NotFound from "./Shared/Not-found/NotFound.jsx";
 
 
@@ -65,7 +67,10 @@ const Router = () => {
             <Route path="login-dashboard" element={<LoginDashboard />} />
             <Route path="register-dashboard" element={<RegisterDashboard />} />
           </Route>
-          <Route path="table-data" element={<TableData />} />
+          <Route path="table-data" element={<TableData />}>
+            <Route path="users" element={<Users />} />
+            <Route path="products" element={<Products />} />
+          </Route>
         </Route>
 
 

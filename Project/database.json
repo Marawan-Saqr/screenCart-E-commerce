@@ -293,37 +293,43 @@
       "id": "1",
       "name": "Maro Saqr",
       "password": "4857463",
-      "role": "admin"
+      "role": "admin",
+      "status": "Inactive"
     },
     {
       "id": "2",
       "name": "Mohmed Yasser",
       "password": "4947163",
-      "role": "user"
+      "role": "user",
+      "status": "Inactive"
     },
     {
       "id": "3",
       "name": "Salma Essam",
       "password": "1933493",
-      "role": "user"
+      "role": "user",
+      "status": "Inactive"
     },
     {
       "id": "4",
       "name": "Mahmoud Nasr",
       "password": "3456335",
-      "role": "user"
+      "role": "user",
+      "status": "Inactive"
     },
     {
-      "id": "da18",
+      "id": "5",
       "name": "Mahmoud Salem",
       "password": "123456",
-      "role": "user"
+      "role": "user",
+      "status": "Inactive"
     },
     {
-      "id": "924a",
+      "id": "6",
       "name": "Salemr",
       "password": "123456",
-      "role": "user"
+      "role": "user",
+      "status": "Inactive"
     }
   ]
 }
