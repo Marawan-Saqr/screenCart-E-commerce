@@ -325,13 +325,6 @@
       "status": "Inactive"
     },
     {
-      "id": "6",
-      "name": "Salemr",
-      "password": "123456",
-      "role": "user",
-      "status": "Inactive"
-    },
-    {
       "id": "7",
       "name": "Yomna Ahmed",
       "password": "123456",

@@ -18,6 +18,29 @@ const Users = () => {
   }
 
 
+  // Delete User Function
+  const deleteUser = async (id, name) => {
+    // Get the current logged-in user from localStorage
+    const userData = localStorage.getItem('user');
+    const parsedUser = userData ? JSON.parse(userData) : null;
+    const loggedInUsername = parsedUser ? parsedUser.name : null;
+    if (name === loggedInUsername) {
+      alert("You cannot delete the currently logged-in user.");
+    } else {
+      // If it's not the logged-in user, proceed with the deletion
+      const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+      if (confirmDelete) {
+        try {
+          await axios.delete(`http://localhost:3001/dashboardUsers/${id}`);
+          setUsers(users.filter((user) => user.id !== id));
+        } catch (error) {
+          console.error("Error deleting user:", error);
+        }
+      }
+    }
+  };
+
+
   // UseEffect
   useEffect(() => {
     getAllUsers();
@@ -72,7 +95,7 @@ const Users = () => {
                     <button className="btn btn-warning">Details</button>
                   </Link>
                   <button className="btn btn-success" onClick={() => navigate(`/dashboard/table-data/update-user/${user.id}`, { state: user })}>Update</button>
-                  <button className="btn btn-danger">Delete</button>
+                  <button className="btn btn-danger" onClick={() => deleteUser(user.id, user.name)}>Delete</button>
                 </td>
               </tr>
             ))}
