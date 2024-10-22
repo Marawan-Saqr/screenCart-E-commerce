@@ -1,3 +1,11 @@
+.users-table h2 {
+  color: #fff;
+}
+
+.users-table h2 span {
+  color: #D10024;
+}
+
 .users-table table tr {
   color: #fff !important;
 }
