@@ -1,12 +1,14 @@
 import "./Users.css";
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 
 const Users = () => {
 
   // Component States
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
 
   // Get All Users
@@ -66,10 +68,10 @@ const Users = () => {
                   )}
                 </td>
                 <td>
-                <Link style={{color: '#fff', textDecoration: 'none'}} to={`/dashboard/table-data/user-details/${user.id}`}>
-                  <button className="btn btn-warning">Details</button>
-                </Link>
-                  <button className="btn btn-success">Update</button>
+                  <Link style={{color: '#fff', textDecoration: 'none'}} to={`/dashboard/table-data/user-details/${user.id}`}>
+                    <button className="btn btn-warning">Details</button>
+                  </Link>
+                  <button className="btn btn-success" onClick={() => navigate(`/dashboard/table-data/update-user/${user.id}`, { state: user })}>Update</button>
                   <button className="btn btn-danger">Delete</button>
                 </td>
               </tr>
