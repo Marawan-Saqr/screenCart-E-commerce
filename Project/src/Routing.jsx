@@ -12,7 +12,7 @@ import ProductsPage from "./Pages/Website/Products-page/ProductsPage.jsx";
 import ProductDetails from "./Pages/Website/Product-details/ProductDetails.jsx";
 import GetByCategory from "./Pages/Website/Get-by-category/GetByCategory.jsx";
 import MyOrders from './Pages/Website/My-orders/MyOrders.jsx';
-import PrivateRoute from './Shared/Private-router/privateRouter.jsx';
+import PrivateRoute from './Shared/Private-router/PrivateRouter.jsx';
 import Dashboard from './Pages/Dashboard/Dashboard.jsx';
 import AuthDashboard from './Pages/Dashboard/Auth-dashboard/AuthDashboard.jsx';
 import LoginDashboard from './Pages/Dashboard/Auth-dashboard/Login-dashboard/LoginDashboard.jsx';
@@ -45,13 +45,7 @@ const Router = () => {
 
 
         {/* Website Routes */}
-        <Route
-          path="website"
-          element={
-            <PrivateRoute>
-              <Website />
-            </PrivateRoute>
-          }
+        <Route path="website" element={<PrivateRoute><Website /></PrivateRoute>}
         >
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />

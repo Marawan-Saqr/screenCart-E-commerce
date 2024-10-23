@@ -7,10 +7,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 const UpdateProducts = () => {
+
   // Component States
   const navigate = useNavigate();
   const { state } = useLocation();
   console.log(state);
+
 
   // Zod Schema
   const productSchema = z.object({
@@ -24,14 +26,17 @@ const UpdateProducts = () => {
     productImage: z.any(),
   });
 
+
   // React Hook Form Destruct
   const { register, handleSubmit, setValue, formState: { errors } } = useForm({ resolver: zodResolver(productSchema), mode: "onBlur" });
+
 
   // Handle Submit Function
   const onSubmit = async (data) => {
     await axios.put(`http://localhost:3001/products/${state.id}`, data);
     navigate("/dashboard/table-data/products"); // Updated the navigation path
   };
+
 
   // UseEffect
   useEffect(() => {
@@ -44,6 +49,7 @@ const UpdateProducts = () => {
       setValue("productImage", state.productImage);
     }
   }, [state, setValue]);
+
 
   return (
     <div className="update-product">
@@ -58,12 +64,14 @@ const UpdateProducts = () => {
               {errors.name && <p>{errors.name.message}</p>}
             </div>
 
+
             {/* Details */}
             <div>
               <label htmlFor="details">Details</label>
               <textarea id="details" {...register("details")} />
               {errors.details && <p>{errors.details.message}</p>}
             </div>
+
 
             {/* Price */}
             <div>
@@ -72,12 +80,14 @@ const UpdateProducts = () => {
               {errors.price && <p>{errors.price.message}</p>}
             </div>
 
+
             {/* Category */}
             <div>
               <label htmlFor="category">Category</label>
               <input id="category" type="text" {...register("category")} />
               {errors.category && <p>{errors.category.message}</p>}
             </div>
+
 
             {/* Rate */}
             <div>
@@ -86,12 +96,14 @@ const UpdateProducts = () => {
               {errors.rate && <p>{errors.rate.message}</p>}
             </div>
 
-            {/* Product Image URL */}
+
+            {/* Product Image */}
             <div>
               <label htmlFor="productImage">Product Image</label>
               <input id="productImage" type="text" {...register("productImage")} />
               {errors.productImage && <p>{errors.productImage.message}</p>}
             </div>
+
 
             <button type="submit">Update Product</button>
           </form>

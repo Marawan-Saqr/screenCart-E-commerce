@@ -4,7 +4,7 @@
   color: #fff;
 }
 
-.title {
+.product-details-dashboard .title {
   font-size: 32px;
   font-weight: 700;
   text-align: center;
@@ -12,25 +12,25 @@
   color: #fff;
 }
 
-.title span {
+.product-details-dashboard .title span {
   color: #ff6347;
   /* Accent color */
 }
 
-.box {
+.product-details-dashboard .box {
   background: #333;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.product-info {
+.product-details-dashboard .product-info {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.product-image {
+.product-details-dashboard .product-image {
   width: 250px;
   height: 250px;
   object-fit: cover;
@@ -39,31 +39,31 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.product-details {
+.product-details-dashboard .product-details {
   list-style: none;
   padding: 0;
   margin: 0;
   width: 100%;
 }
 
-.product-details li {
+.product-details-dashboard .product-details li {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
 
-.label {
+.product-details-dashboard .label {
   font-weight: 600;
   font-size: 16px;
 }
 
-.value {
+.product-details-dashboard .value {
   font-weight: 400;
   font-size: 16px;
   color: #ddd;
 }
 
-.loading-message {
+.product-details-dashboard .loading-message {
   text-align: center;
   font-size: 18px;
   color: #ff6347;

@@ -4,9 +4,11 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const ProductDetailsDash = () => {
+
   // Component States
   const { PRODUCTID } = useParams();
   const [product, setProduct] = useState(null);
+
 
   // Get Product Details Function
   const getProductDetails = async () => {
@@ -18,10 +20,12 @@ const ProductDetailsDash = () => {
     }
   };
 
+
   // UseEffect
   useEffect(() => {
     getProductDetails();
   }, [PRODUCTID]);
+
 
   return (
     <div className="product-details-dashboard">

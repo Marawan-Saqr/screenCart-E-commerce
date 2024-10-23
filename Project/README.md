@@ -8,16 +8,13 @@
 "React Project"
 
 # Project Description
-"Courses Managment CRUD Operation System That You Can Add, Delete, Update, Show => Course, Users, Students,
-Basic Filter Operations Simple System And Good Userinterface."
+"A simple e-commerce website featuring a login page to website and user can order products and see orders history in his orders.The second part is dashboard with another login page and dashboard to manage users role and CRUD on users and products."
 
 # Project Features:
-- Login & Register To System.
-- Create, Read, Update, Delete, Show Details Of Users.
-- Create, Read, Update, Delete, Show Details Of Courses.
-- Create, Read, Update, Delete, Show Details Of Students.
-- Filter Courses By Difficulties.
-- Filter Courses By Enrolled Students.
+- Login & Register To Website As User to order Products.
+- Add And Remove From Cart & Wishlist And Orders Products And See Your Orders In Orders History.
+- Filter Products In Website.
+- Login & Register To Dashboard As Admin Or User To Manage Users And Products.
 
 # Dependencies: Libraries or frameworks required for the project.
 "I Used In This Project:
@@ -26,13 +23,15 @@ Json-server => To Get Fake Api From Server.
 Styled-components => styled-components.
 Forms => react-hook-form.
 Advanced Forms => Zod.
-Bootstrap => react-bootstrap bootstrap
+Bootstrap => react-bootstrap bootstrap.
+State Mangament => Use Context.
+Advanced State Managment => Redux.
 
 # Authors
 ==> Created By Eng: Marawan Saqr 😊💻
 
 # Next Project
-==> Ecommerce
+==> TODO LIST
 
 # Help Links
 https://react-bootstrap.netlify.app/

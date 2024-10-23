@@ -17,13 +17,7 @@ const Products = () => {
   };
 
 
-  // UseEffect
-  useEffect(() => {
-    getAllProducts();
-  }, []);
-
-
-  // Delete Product function (optional, if needed)
+  // Delete Product function
   const deleteProduct = async (productId, productName) => {
     try {
       await axios.delete(`http://localhost:3001/products/${productId}`);
@@ -33,6 +27,12 @@ const Products = () => {
       console.error("Error deleting product:", error);
     }
   };
+
+
+  // UseEffect
+  useEffect(() => {
+    getAllProducts();
+  }, []);
 
 
   return (

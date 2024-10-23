@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const websiteQuery = createApi({
-  reducerPath: 'websiteQuery', // Changed from 'productsApi' to 'websiteQuery'
+  reducerPath: 'websiteQuery',
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001" }),
   endpoints: (builder) => ({
     getAllProducts: builder.query({
@@ -32,5 +32,5 @@ export const {
   useGetAllProductsQuery, 
   useGetAllOrdersQuery, 
   useRegisterUserMutation, 
-  useLoginUserMutation // Expose the mutation
+  useLoginUserMutation
 } = websiteQuery;

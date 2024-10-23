@@ -148,13 +148,13 @@
       "productImage": "asus-laptop.png"
     },
     {
+      "id": "11",
       "name": "Headset 2021",
-      "details": "wdwdwdwdwd",
+      "details": "Power full sound",
       "price": 50,
       "category": "headsets",
       "rate": 3,
-      "productImage": "headset2021.png",
-      "id": "e510"
+      "productImage": "headset2021.png"
     }
   ],
   "orders": [
