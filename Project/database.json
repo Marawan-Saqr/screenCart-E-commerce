@@ -59,9 +59,9 @@
   "products": [
     {
       "id": "1",
-      "name": "laptop hp 2010",
-      "details": "Small And Speed Laptop",
-      "price": 130,
+      "name": "laptop hp 2011",
+      "details": "Good For Programmes",
+      "price": 220,
       "category": "laptops",
       "rate": 4,
       "productImage": "laptop-hp-2010.png"
@@ -146,6 +146,15 @@
       "category": "laptops",
       "rate": 1,
       "productImage": "asus-laptop.png"
+    },
+    {
+      "name": "Headset 2021",
+      "details": "wdwdwdwdwd",
+      "price": 50,
+      "category": "headsets",
+      "rate": 3,
+      "productImage": "headset2021.png",
+      "id": "e510"
     }
   ],
   "orders": [

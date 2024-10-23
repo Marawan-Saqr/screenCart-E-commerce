@@ -1,0 +1,73 @@
+.add-product h2 span {
+  color: #D10024;
+}
+
+.add-product-form {
+  padding: 20px;
+  background-color: #161616;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.add-product-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.add-product-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.add-product-form input,
+.add-product-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.add-product-form input:focus,
+.add-product-form select:focus {
+  border-color: #66afe9;
+  box-shadow: 0px 0px 5px rgba(102, 175, 233, 0.5);
+  outline: none;
+}
+
+.add-product-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5cb85c;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.add-product-form button:hover {
+  background-color: #4cae4c;
+  transform: scale(1.05);
+}
+
+.add-product-form button:active {
+  background-color: #45a049;
+}
+
+.add-product-form p {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}

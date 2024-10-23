@@ -22,6 +22,9 @@ import Users from './Pages/Dashboard/Table-data/Users/Users.jsx';
 import UserDetailsDashboard from './Pages/Dashboard/Table-data/User-details/UserDetailsDashboard.jsx';
 import AddUser from './Pages/Dashboard/Table-data/Add-user/AddUser.jsx';
 import Products from './Pages/Dashboard/Table-data/Products/Products.jsx';
+import ProductDetailsDash from './Pages/Dashboard/Table-data/Product-details-dash/ProductDetailsDash.jsx';
+import AddProducts from './Pages/Dashboard/Table-data/Add-products/AddProducts.jsx';
+import UpdateProducts from './Pages/Dashboard/Table-data/Update-products/UpdateProducts.jsx';
 import NotFound from "./Shared/Not-found/NotFound.jsx";
 import UpdateUser from "./Pages/Dashboard/Table-data/Update-user/UpdateUser.jsx";
 
@@ -73,9 +76,12 @@ const Router = () => {
           <Route path="table-data" element={<TableData />}>
             <Route path="users" element={<Users />} />
             <Route path="user-details/:USERID" element={<UserDetailsDashboard />} />
-            <Route path="products" element={<Products />} />
             <Route path="add-user" element={<AddUser />} />
             <Route path="update-user/:USERID" element={<UpdateUser />} />
+            <Route path="products" element={<Products />} />
+            <Route path="product-details/:PRODUCTID" element={<ProductDetailsDash />} />
+            <Route path="add-products" element={<AddProducts />} />
+            <Route path="update-product/:PRODUCTID" element={<UpdateProducts />} />
           </Route>
         </Route>
 

@@ -1,0 +1,19 @@
+.products-table h2 {
+  color: #fff;
+}
+
+.products-table h2 span {
+  color: #D10024;
+}
+
+.products-table table tr {
+  color: #fff !important;
+}
+
+.products-table button {
+  margin-right: 10px;
+}
+
+.data-table {
+  width: 191%;
+}
