@@ -1,0 +1,69 @@
+.ad-banner {
+  background-image: url('./ad-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.ad-banner::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+}
+
+.ad-banner .lists ul {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  list-style-type: none;
+}
+
+.ad-banner .lists ul li {
+  color: #fff;
+  margin: 0 10px;
+  background-color: rgba(209, 0, 36, 0.9);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .ad-banner .lists ul li {
+    margin: 0px 5px;
+  }
+}
+
+.ad-banner .lists ul li div {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ad-banner .lists ul li div p {
+  margin: 0px;
+}
+
+.ad-banner .content {
+  margin-top: 30px;
+}
+
+.ad-banner .content h2,
+.ad-banner .content p {
+  color: #fff;
+  text-transform: uppercase;
+}

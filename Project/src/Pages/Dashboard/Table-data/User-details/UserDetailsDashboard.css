@@ -1,0 +1,18 @@
+.user-details-dashboard h2 span {
+  color: #D10024;
+}
+
+.user-details-dashboard .box {
+  background-color: black;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  border-bottom: 2px solid #D10024;
+}
+
+.user-details-dashboard .box ul {
+  line-height: 2.6;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}

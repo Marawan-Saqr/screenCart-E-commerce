@@ -1,0 +1,30 @@
+.product-details {
+  margin: 70px 0px;
+}
+
+.product-details .row {
+  border-bottom: 4px solid #D10024;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.product-details .right .content {
+  margin-top: 30px;
+}
+
+@media (max-width: 767px) {
+  .product-details .left,
+  .product-details .right {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .product-details .left,
+  .product-details .right {
+    text-align: center;
+  }
+}

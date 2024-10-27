@@ -1,0 +1,75 @@
+.topbar {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.topbar .navbar.dark-mode {
+  background-color: #333;
+}
+
+.topbar .nav-link.dark-mode {
+  color: #fff;
+}
+
+.topbar .nav-link.active {
+  color: #D10024 !important;
+}
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .topbar .nav-link {
+    font-size: 13px !important;
+  }
+}
+
+.topbar .navbar-nav .nav-link {
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 30px;
+  position: relative;
+  transition: color 0.3s ease;
+  padding-left: 0px;
+  padding-right: 0px;
+  transition: color 0.3s ease;
+}
+
+.topbar .navbar-nav .nav-link:hover {
+  color: #D10024;
+}
+
+.topbar .navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 0;
+  height: 2px;
+  background-color: #D10024;
+  transition: width 0.4s ease;
+  -webkit-transition: width 0.4s ease;
+  -moz-transition: width 0.4s ease;
+  -ms-transition: width 0.4s ease;
+  -o-transition: width 0.4s ease;
+}
+
+.topbar .navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.topbar .navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 767px) {
+  .topbar {
+    padding: 8px 0;
+  }
+
+  .topbar .navbar-nav .nav-link {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+}

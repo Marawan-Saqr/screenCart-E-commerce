@@ -1,0 +1,81 @@
+.collection {
+  margin: 70px 0px;
+}
+
+.collection .box {
+  position: relative;
+  background-color: #E4E7ED;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .collection .box[class="box two position-relative"] {
+    margin: 30px 0px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .collection .box[class="box three position-relative"] {
+    margin: 30px 0px;
+  }
+}
+
+.collection .box img {
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.collection .box:hover img {
+  transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.1, 1.1);
+  -moz-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  -o-transform: scale(1.1, 1.1);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.collection .img-fluid {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.collection .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #D10024;
+  clip-path: polygon(0 0, 95% 0, 35% 100%, 0% 100%);
+  opacity: 0.8;
+}
+
+.collection .text-content {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+.collection .text-content h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.collection .shop-now-btn {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}

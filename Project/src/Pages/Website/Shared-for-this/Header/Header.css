@@ -1,0 +1,154 @@
+.header {
+  padding: 20px 0;
+  background-color: #15161D;
+  color: white;
+  border-bottom: 4px solid #D10024;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .header .row {
+    justify-content: center;
+  }
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .header .left h1 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) and (max-width: 991px) {
+  .header .left h1 {
+    text-align: center;
+  }
+}
+
+.header .mid {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .header .mid {
+    margin: 20px 0px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .header .mid {
+    margin: 20px 0px;
+  }
+}
+
+.header .mid select {
+  background-color: #20232A;
+  color: white;
+  border: 1px solid #444;
+  padding: 5px 14px;
+  border-radius: 5px;
+}
+
+.header .mid input {
+  padding: 5px 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #20232A;
+  color: white;
+}
+
+.header .mid .form-control,
+.form-select {
+  background-color: #20232A;
+  color: white;
+}
+
+.header .mid .form-select:focus,
+.form-control:focus {
+  box-shadow: none;
+  border-color: #0069D9;
+}
+
+.header .end {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 767px) {
+  .header .end {
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .header .end {
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+    margin-top: 20px;
+  }
+}
+
+.header .end .buy-icons i {
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.header .end .buy-icons i:hover {
+  color: #D10024;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.header .cart-container,
+.header .wishlist-container {
+  position: relative;
+}
+
+.header .cart-badge {
+  position: absolute;
+  top: -10px;
+  right: -4px;
+  background-color: #D10024;
+  color: white;
+  border-radius: 50%;
+  padding: 3px;
+  font-size: 12px;
+  font-weight: bold;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .wishlist-badge {
+  position: absolute;
+  top: -10px;
+  right: 11px;
+  background-color: #D10024;
+  color: white;
+  border-radius: 50%;
+  padding: 3px;
+  font-size: 12px;
+  font-weight: bold;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
