@@ -5,6 +5,7 @@ import "./UpdateProducts.css";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
 
 const UpdateProducts = () => {
 
@@ -34,7 +35,13 @@ const UpdateProducts = () => {
   // Handle Submit Function
   const onSubmit = async (data) => {
     await axios.put(`http://localhost:3001/products/${state.id}`, data);
-    navigate("/dashboard/table-data/products"); // Updated the navigation path
+    await Swal.fire({
+      icon: 'success',
+      title: 'Product Updated!',
+      text: 'Product updated successfully!',
+    });
+    
+    navigate("/dashboard/table-data/products");
   };
 
 

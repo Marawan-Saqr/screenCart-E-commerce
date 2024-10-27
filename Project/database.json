@@ -146,15 +146,6 @@
       "category": "laptops",
       "rate": 1,
       "productImage": "asus-laptop.png"
-    },
-    {
-      "id": "11",
-      "name": "Headset 2021",
-      "details": "Power full sound",
-      "price": 50,
-      "category": "headsets",
-      "rate": 3,
-      "productImage": "headset2021.png"
     }
   ],
   "orders": [
@@ -295,6 +286,282 @@
         }
       ],
       "createdAt": 1729170696551
+    },
+    {
+      "id": "f09c",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "2",
+          "name": "laptop hp 2014",
+          "details": "Very Speed Laptop",
+          "price": 270,
+          "category": "laptops",
+          "rate": 2,
+          "productImage": "laptop-hp-2014.png",
+          "qty": 2
+        },
+        {
+          "id": "4",
+          "name": "keyboard rgba red dragon",
+          "details": "rgba colors",
+          "price": 70,
+          "category": "computers",
+          "rate": 5,
+          "productImage": "keyboard-rgba-red-dragon.png",
+          "qty": 2
+        },
+        {
+          "id": "5",
+          "name": "camera superFrame 360",
+          "details": "Super Shot And Quality Photos",
+          "price": 390,
+          "category": "cameras",
+          "rate": 5,
+          "productImage": "camera-superFrame-360.png",
+          "qty": 4
+        },
+        {
+          "id": "6",
+          "name": "iphone 5",
+          "details": "Small Phone And Quality Control Of Anything",
+          "price": 90,
+          "category": "smartphones",
+          "rate": 5,
+          "productImage": "iphone-5.png",
+          "qty": 1
+        },
+        {
+          "id": "7",
+          "name": "screen HP Curve",
+          "details": "curve screens with beautifull colors",
+          "price": 120,
+          "category": "computers",
+          "rate": 1,
+          "productImage": "screen-HP-Curve.png",
+          "qty": 1
+        },
+        {
+          "id": "10",
+          "name": "asus laptop",
+          "details": "Small And Speed Laptop",
+          "price": 150,
+          "category": "laptops",
+          "rate": 1,
+          "productImage": "asus-laptop.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729934352149
+    },
+    {
+      "id": "cbfe",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "5",
+          "name": "camera superFrame 360",
+          "details": "Super Shot And Quality Photos",
+          "price": 390,
+          "category": "cameras",
+          "rate": 5,
+          "productImage": "camera-superFrame-360.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729934389228
+    },
+    {
+      "id": "b834",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "5",
+          "name": "camera superFrame 360",
+          "details": "Super Shot And Quality Photos",
+          "price": 390,
+          "category": "cameras",
+          "rate": 5,
+          "productImage": "camera-superFrame-360.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729934438173
+    },
+    {
+      "id": "c213",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "3",
+          "name": "Headset Colorize",
+          "details": "Rgba Colors And Beautifull Lights",
+          "price": 50,
+          "category": "headsets",
+          "rate": 5,
+          "productImage": "Headset-Colorize.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729934635780
+    },
+    {
+      "id": "d50e",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "4",
+          "name": "keyboard rgba red dragon",
+          "details": "rgba colors",
+          "price": 70,
+          "category": "computers",
+          "rate": 5,
+          "productImage": "keyboard-rgba-red-dragon.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729934659083
+    },
+    {
+      "id": "e3de",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "8",
+          "name": "smasung Phone 2022",
+          "details": "Speed And Medium Quality",
+          "price": 80,
+          "category": "smartphones",
+          "rate": 4,
+          "productImage": "smasung-Phone-2022.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729934726341
+    },
+    {
+      "id": "d057",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "4",
+          "name": "keyboard rgba red dragon",
+          "details": "rgba colors",
+          "price": 70,
+          "category": "computers",
+          "rate": 5,
+          "productImage": "keyboard-rgba-red-dragon.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729935096908
+    },
+    {
+      "id": "800a",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "9",
+          "name": "Mic For Pc",
+          "details": "Used In Pc And Good Quality Sound",
+          "price": 80,
+          "category": "accessories",
+          "rate": 2,
+          "productImage": "Mic-For-Pc.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729935114315
+    },
+    {
+      "id": "6715",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "9",
+          "name": "Mic For Pc",
+          "details": "Used In Pc And Good Quality Sound",
+          "price": 80,
+          "category": "accessories",
+          "rate": 2,
+          "productImage": "Mic-For-Pc.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729935535716
+    },
+    {
+      "id": "8fc3",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "3",
+          "name": "Headset Colorize",
+          "details": "Rgba Colors And Beautifull Lights",
+          "price": 50,
+          "category": "headsets",
+          "rate": 5,
+          "productImage": "Headset-Colorize.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729935762633
+    },
+    {
+      "id": "b4c8",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "1",
+          "name": "laptop hp 2011",
+          "details": "Good For Programmes",
+          "price": 220,
+          "category": "laptops",
+          "rate": 4,
+          "productImage": "laptop-hp-2010.png",
+          "qty": 1
+        },
+        {
+          "id": "10",
+          "name": "asus laptop",
+          "details": "Small And Speed Laptop",
+          "price": 150,
+          "category": "laptops",
+          "rate": 1,
+          "productImage": "asus-laptop.png",
+          "qty": 2
+        }
+      ],
+      "createdAt": 1729935956002
+    },
+    {
+      "id": "94a7",
+      "userId": "1",
+      "userName": "Marawan",
+      "products": [
+        {
+          "id": "10",
+          "name": "asus laptop",
+          "details": "Small And Speed Laptop",
+          "price": 150,
+          "category": "laptops",
+          "rate": 1,
+          "productImage": "asus-laptop.png",
+          "qty": 1
+        }
+      ],
+      "createdAt": 1729935979473
     }
   ],
   "dashboardUsers": [
@@ -341,11 +608,46 @@
       "status": "inactive"
     },
     {
+      "id": "8",
       "name": "Yassmina Moaz",
       "password": "123456",
       "role": "user",
+      "status": "inactive"
+    },
+    {
+      "id": "9",
+      "name": "Hadeet Mohmed",
+      "password": "123456",
+      "role": "user",
+      "status": "inactive"
+    },
+    {
+      "id": "10",
+      "name": "Said Ayman",
+      "password": "123456",
+      "role": "user",
+      "status": "inactive"
+    },
+    {
+      "id": "6ebb",
+      "name": "Basem Nabil",
+      "password": "123456",
+      "role": "user",
+      "status": "inactive"
+    },
+    {
+      "id": "a4f3",
+      "name": "Moaz Ahmed",
+      "password": "123456",
+      "role": "user",
+      "status": "inactive"
+    },
+    {
+      "name": "Ahmed Rabie",
+      "password": "12345678",
+      "role": "admin",
       "status": "inactive",
-      "id": "8"
+      "id": "56ba"
     }
   ]
 }

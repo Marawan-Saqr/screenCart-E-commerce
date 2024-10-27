@@ -1,3 +1,4 @@
+import "./LoginDashboard.css";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -5,7 +6,8 @@ import axios from "axios";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LoginDashboard.css";
+import { Link } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 const LoginDashboard = () => {
 
@@ -30,22 +32,41 @@ const LoginDashboard = () => {
 
   // Function to handle form submission
   const onSubmit = async (data) => {
-    const response = await axios.get("http://localhost:3001/dashboardUsers");
-    const users = response.data;
-    const userFound = users.find((user) => user.name === data.name && user.password === data.password);
-    if (userFound) {
-      setLoginError("");
-      const userObject = {
-        id: userFound.id,
-        name: userFound.name,
-        password: userFound.password,
-        role: userFound.role,
-        status: "Active"
-      };
-      localStorage.setItem("user", JSON.stringify(userObject));
-      navigate("/dashboard/table-data");
+    try {
+      const response = await axios.get("http://localhost:3001/dashboardUsers");
+      const users = response.data;
+      const userFound = users.find((user) => user.name === data.name && user.password === data.password);
+      if (userFound) {
+        setLoginError("");
+        const userObject = {
+          id: userFound.id,
+          name: userFound.name,
+          password: userFound.password,
+          role: userFound.role,
+          status: "Active"
+        };
+        localStorage.setItem("user", JSON.stringify(userObject));
+        Swal.fire({
+          title: "Login Successful",
+          text: "Welcome back! You will be redirected to the dashboard.",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then(() => {
+          navigate("/dashboard/table-data");
+          window.location.reload();
+        });
       } else {
         setLoginError("Invalid name or password");
+        Swal.fire({
+          title: "Login Failed",
+          text: "Invalid name or password. Please try again.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
+    } catch (error) {
+      console.error("Error during login: ", error);
+      setLoginError("An error occurred. Please try again later.");
     }
   };
 
@@ -92,6 +113,7 @@ const LoginDashboard = () => {
             <Button type="submit" className="login-btn">
               Login
             </Button>
+            <Link style={{ paddingTop: '20px', display: 'block', textAlign: 'right', color: '#ff6b6b' }} to={"/dashboard/auth-dashboard/register-dashboard"}>Register</Link>
           </Form>
         </div>
       </div>

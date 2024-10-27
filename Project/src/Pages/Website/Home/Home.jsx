@@ -1,3 +1,4 @@
+import Slider from '../../Website/Shared-for-this/Slider/Slider';
 import Collection from './Collection/Collection';
 import AllProducts from '../Shared-for-this/Products/AllProducts';
 import { TitleProvider } from '../../../Hooks/titleContext';
@@ -7,6 +8,7 @@ import Subscribe from '../Shared-for-this/Subscribe/Subscribe';
 const Home = () => {
   return (
     <div>
+      <Slider />
       <Collection />
       <TitleProvider title="New Products">
         <AllProducts limit={4} />

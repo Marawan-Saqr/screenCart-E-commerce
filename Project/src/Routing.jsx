@@ -1,5 +1,5 @@
-import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Auth from "./Pages/Website/Auth/Auth.jsx";
 import Login from "./Pages/Website/Auth/Login/Login.jsx";
 import Register from "./Pages/Website/Auth/Register/Register.jsx";
@@ -28,14 +28,34 @@ import UpdateProducts from './Pages/Dashboard/Table-data/Update-products/UpdateP
 import NotFound from "./Shared/Not-found/NotFound.jsx";
 import UpdateUser from "./Pages/Dashboard/Table-data/Update-user/UpdateUser.jsx";
 
-
-
 const Router = () => {
+
+  // Component States
+  const [userRole, setUserRole] = useState(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user ? user.role : null;
+  });
+  const [userStatus, setUserStatus] = useState(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user ? user.status : null;
+  });
+
+
+  // UseEffect
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const user = JSON.parse(localStorage.getItem('user'));
+      setUserRole(user ? user.role : null);
+      setUserStatus(user ? user.status : null);
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+
   return (
     <BrowserRouter>
       <Routes>
-
-
         {/* Auth Routes */}
         <Route path="/" element={<Auth />}>
           <Route index element={<Login />} />
@@ -45,8 +65,7 @@ const Router = () => {
 
 
         {/* Website Routes */}
-        <Route path="website" element={<PrivateRoute><Website /></PrivateRoute>}
-        >
+        <Route path="website" element={<PrivateRoute><Website /></PrivateRoute>}>
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="wishlist" element={<Wishlist />} />
@@ -60,18 +79,25 @@ const Router = () => {
 
 
         {/* Dashboard Route */}
-        <Route path="dashboard" element={<Dashboard />}>
-          <Route index element={<Navigate to="auth-dashboard" />} />
+        <Route path="dashboard" element={userStatus === 'Active' ? <Dashboard /> : <LoginDashboard />}>
           <Route path="auth-dashboard" element={<AuthDashboard />}>
             <Route index element={<LoginDashboard />} />
             <Route path="login-dashboard" element={<LoginDashboard />} />
             <Route path="register-dashboard" element={<RegisterDashboard />} />
           </Route>
+          <Route index element={<TableData />} />
           <Route path="table-data" element={<TableData />}>
-            <Route path="users" element={<Users />} />
-            <Route path="user-details/:USERID" element={<UserDetailsDashboard />} />
-            <Route path="add-user" element={<AddUser />} />
-            <Route path="update-user/:USERID" element={<UpdateUser />} />
+            {userRole === 'admin' && (
+              <>
+                <Route path="users" element={<Users />} />
+                <Route path="user-details/:USERID" element={<UserDetailsDashboard />} />
+                <Route path="add-user" element={<AddUser />} />
+                <Route path="update-user/:USERID" element={<UpdateUser />} />
+              </>
+            )}
+            {userRole === 'user' && (
+              <Route path="*" element={<Navigate to="/dashboard/table-data" />} />
+            )}
             <Route path="products" element={<Products />} />
             <Route path="product-details/:PRODUCTID" element={<ProductDetailsDash />} />
             <Route path="add-products" element={<AddProducts />} />

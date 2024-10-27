@@ -13,6 +13,12 @@
   margin-bottom: 30px;
 }
 
+@media (max-width: 767px) {
+  .footer h2 {
+    margin: 20px 0px;
+  }
+}
+
 .footer ul {
   list-style-type: none;
   padding: 0px;

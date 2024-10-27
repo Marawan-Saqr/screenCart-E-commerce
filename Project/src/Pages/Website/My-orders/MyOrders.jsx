@@ -7,14 +7,14 @@ import Swal from "sweetalert2";
 const MyOrders = () => {
 
   // Component States
-  const { data: orders } = useGetAllOrdersQuery();
+  const { data: orders, refetch } = useGetAllOrdersQuery();
   const shippingCost = 5;
 
 
-  //UseEffect
+  // UseEffect
   useEffect(() => {
-    console.log(orders);
-  }, [orders]);
+    refetch();
+  }, [refetch]);
 
 
   return (

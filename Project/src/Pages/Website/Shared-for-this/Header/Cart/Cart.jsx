@@ -14,7 +14,7 @@ const Cart = () => {
   // Component States
   const dispatch = useDispatch();
   const { redirect, isLoggedIn } = useAuth();
-  const cart = useSelector(state => state.cart.cartItems);
+  const cart = useSelector((state) => state.cart.cartItems);
   const user = useSelector(state => state.loginWebsite.userData);
   const [subtotal, setSubTotal] = useState(0);
   const shippingCost = 5;
@@ -23,17 +23,18 @@ const Cart = () => {
   // Calculate total quantity of items (including duplicates)
   const totalItems = cart.reduce((acc, product) => acc + product.qty, 0);
 
+
   // useEffect
   useEffect(() => {
     setSubTotal(() => cart.reduce((a, b) => a + (b.qty * b.price), 0));
   }, [cart, shippingCost]);
-
   const checkout = () => {
     if (!isLoggedIn) {
       redirect();
       return;
     }
-  
+
+
     Swal.fire({
       title: "Are you sure?",
       text: "You Will Order These Product.",
@@ -60,7 +61,8 @@ const Cart = () => {
       }
     });
   };
-  
+
+
 
   return (
     <Container className="my-5">

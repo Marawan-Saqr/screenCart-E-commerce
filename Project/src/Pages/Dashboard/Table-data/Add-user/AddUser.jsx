@@ -4,15 +4,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import "./AddUser.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 
 const AddUser = () => {
 
   // Component States
-  const naviegate = useNavigate();
+  const navigate = useNavigate();
 
 
-  // Zod Scheme
+  // Zod Schema
   const userSchema = z.object({
     name: z.string()
       .min(6, "Name must be at least 6 characters long")
@@ -26,20 +26,35 @@ const AddUser = () => {
 
 
   // React Hook Form Destruct
-  const { register, handleSubmit, formState: { errors } } = useForm({ resolver: zodResolver(userSchema), mode: "onBlur"});
+  const { register, handleSubmit, formState: { errors } } = useForm({ resolver: zodResolver(userSchema), mode: "onBlur" });
 
 
   // Handle Submit Function
   const onSubmit = async (data) => {
-    await axios.post("http://localhost:3001/dashboardUsers", data);
-    naviegate("/dashboard/table-data/users");
+    try {
+      await axios.post("http://localhost:3001/dashboardUsers", data);
+      // Show success alert
+      await Swal.fire({
+        icon: 'success',
+        title: 'User Added!',
+        text: 'The user has been added successfully.',
+      });
+      navigate("/dashboard/table-data/users");
+    } catch (error) {
+      console.error("There was an error adding the user:", error);
+      await Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'There was an error adding the user.',
+      });
+    }
   }
 
 
   return (
     <div className="add-user">
       <div className="container">
-        <h2 className="mb-3" style={{color: '#fff', textTransform: 'uppercase'}}>Add <span>User</span></h2>
+        <h2 className="mb-3" style={{ color: '#fff', textTransform: 'uppercase' }}>Add <span>User</span></h2>
         <div className="add-user-form">
           <form onSubmit={handleSubmit(onSubmit)}>
 

@@ -46,6 +46,7 @@ const cartSlice = createSlice({
     },
     emptyCart: (state) => {
       state.cartItems = [];
+      saveCartToLocalStorage([]); // Clear localStorage as well
     },
     closeMessage: (state) => {
       state.open = false;

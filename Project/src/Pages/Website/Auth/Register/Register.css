@@ -1,4 +1,4 @@
-.mainscreen {
+.register-box .mainscreen {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.card {
+.register-box .card {
   background: white;
   border-radius: 1.5rem;
   box-shadow: 4px 3px 20px #3535358c;
@@ -19,26 +19,58 @@
   padding: 0;
 }
 
-.leftside {
+@media (max-width: 767px) {
+  .register-box .card {
+    margin: 40px 0px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .register-box .card {
+    margin: 40px 0px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .register-box .card {
+    flex-direction: column;
+  }
+}
+
+.register-box .leftside {
   background: #030303;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.product {
+@media only screen and (max-width: 1000px) {
+  .register-box .leftside {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+.register-box .product {
   object-fit: cover;
   width: 20em;
   height: 20em;
   border-radius: 100%;
 }
 
-.rightside {
+.register-box .rightside {
   background-color: #ffffff;
   padding: 2rem;
 }
 
-.inputbox {
+@media only screen and (max-width: 1000px) {
+  .register-box .rightside {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+.register-box .inputbox {
   width: 100%;
   padding: 0.5rem;
   border: none;
@@ -48,13 +80,13 @@
   color: #615a5a;
 }
 
-.expcvv {
+.register-box .expcvv {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
 
-.button {
+.register-box .button {
   background: linear-gradient(135deg, #753370 0%, #298096 100%);
   padding: 15px;
   border: none;
@@ -66,27 +98,11 @@
   transition: transform 0.2s ease;
 }
 
-.button:hover {
+.register-box .button:hover {
   transform: scale(1.05) translateY(-3px);
   box-shadow: 3px 3px 6px #38373785;
 }
 
-@media only screen and (max-width: 1000px) {
-  .card {
-    flex-direction: column;
-  }
-
-  .leftside {
-    width: 100%;
-    border-radius: 0;
-  }
-
-  .rightside {
-    width: 100%;
-    padding: 1rem;
-  }
-}
-
-.form-group {
+.register-box .form-group {
   margin-bottom: 30px;
 }

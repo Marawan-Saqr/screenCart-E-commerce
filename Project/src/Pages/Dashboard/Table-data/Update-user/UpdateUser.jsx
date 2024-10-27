@@ -5,17 +5,17 @@ import "./UpdateUser.css";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-
+import Swal from "sweetalert2";
 
 const UpdateUser = () => {
 
   // Component States
-  const naviegate = useNavigate();
+  const navigate = useNavigate();
   const { state } = useLocation();
   console.log(state);
 
 
-  // Zod Scheme
+  // Zod Schema
   const userSchema = z.object({
     name: z.string()
       .min(6, "Name must be at least 6 characters long")
@@ -29,13 +29,27 @@ const UpdateUser = () => {
 
 
   // React Hook Form Destruct
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm({ resolver: zodResolver(userSchema), mode: "onBlur"});
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm({ resolver: zodResolver(userSchema), mode: "onBlur" });
 
 
   // Handle Submit Function
   const onSubmit = async (data) => {
-    await axios.put(`http://localhost:3001/dashboardUsers/${state.id}`, data);
-    naviegate("/dashboard/table-data/users");
+    try {
+      await axios.put(`http://localhost:3001/dashboardUsers/${state.id}`, data);
+      await Swal.fire({
+        icon: 'success',
+        title: 'User Updated!',
+        text: 'The user has been updated successfully.',
+      });
+      navigate("/dashboard/table-data/users");
+    } catch (error) {
+      console.error("There was an error updating the user:", error);
+      await Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'There was an error updating the user.',
+      });
+    }
   }
 
 
@@ -60,7 +74,7 @@ const UpdateUser = () => {
   return (
     <div className="update-user">
       <div className="container">
-        <h2 className="mb-3" style={{color: '#fff', textTransform: 'uppercase'}}>Update <span>User</span></h2>
+        <h2 className="mb-3" style={{ color: '#fff', textTransform: 'uppercase' }}>Update <span>User</span></h2>
         <div className="update-user-form">
           <form onSubmit={handleSubmit(onSubmit)}>
 
