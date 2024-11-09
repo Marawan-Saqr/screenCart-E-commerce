@@ -1,0 +1,108 @@
+.register-box .mainscreen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #dfdbe5;
+  background-image: url("https://wallpaperaccess.com/full/3063067.png");
+  color: #963e7b;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-box .card {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 4px 3px 20px #3535358c;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  padding: 0;
+}
+
+@media (max-width: 767px) {
+  .register-box .card {
+    margin: 40px 0px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .register-box .card {
+    margin: 40px 0px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .register-box .card {
+    flex-direction: column;
+  }
+}
+
+.register-box .leftside {
+  background: #030303;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1000px) {
+  .register-box .leftside {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+.register-box .product {
+  object-fit: cover;
+  width: 20em;
+  height: 20em;
+  border-radius: 100%;
+}
+
+.register-box .rightside {
+  background-color: #ffffff;
+  padding: 2rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .register-box .rightside {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+.register-box .inputbox {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1.5px solid #ccc;
+  border-radius: 0.3rem;
+  font-size: 1.1rem;
+  color: #615a5a;
+}
+
+.register-box .expcvv {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.register-box .button {
+  background: linear-gradient(135deg, #753370 0%, #298096 100%);
+  padding: 15px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 400;
+  font-size: 1.2rem;
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.register-box .button:hover {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 3px 3px 6px #38373785;
+}
+
+.register-box .form-group {
+  margin-bottom: 30px;
+}

@@ -1,0 +1,27 @@
+.not-found {
+  text-align: center;
+  padding: 22px 0px;
+  background-color: #e2e2e2;
+}
+
+.not-found .content {
+  display: inline-block;
+  max-width: 600px;
+}
+
+.not-found .not-found-image {
+  width: 100%;
+  max-width: 400px;
+}
+
+.not-found h1 {
+  font-size: 36px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.not-found p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}

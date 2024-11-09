@@ -1,0 +1,14 @@
+.subscribe .mid input {
+  padding: 5px 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  border-radius: 21px;
+  -webkit-border-radius: 21px;
+  -moz-border-radius: 21px;
+  -ms-border-radius: 21px;
+  -o-border-radius: 21px;
+}
+
+.subscribe .mid button:hover {
+  background-color: #880017;
+}
