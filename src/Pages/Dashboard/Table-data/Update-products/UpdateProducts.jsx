@@ -34,7 +34,7 @@ const UpdateProducts = () => {
 
   // Handle Submit Function
   const onSubmit = async (data) => {
-    await axios.put(`http://localhost:3001/products/${state.id}`, data);
+    await axios.put(`https://veil-flicker-piano.glitch.me/products/${state.id}`, data);
     await Swal.fire({
       icon: 'success',
       title: 'Product Updated!',
