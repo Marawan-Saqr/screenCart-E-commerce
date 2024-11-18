@@ -12,7 +12,7 @@ const UserDetailsDashboard = () => {
 
   // Get User Details Function
   const getUserDetails = async () => {
-    const response = await axios.get(`http://localhost:3001/dashboardUsers/${USERID}`);
+    const response = await axios.get(`https://veil-flicker-piano.glitch.me/dashboardUsers/${USERID}`);
     setUser(response.data);
   };
 
