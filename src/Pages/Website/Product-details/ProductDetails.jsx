@@ -29,7 +29,7 @@ const ProductDetails = () => {
         <div className="row align-items-center justify-content-between">
           <div className="col-md-12 col-lg-5">
             <div className="left">
-              <img src={"https://veil-flicker-piano.glitch.me//images/" + product?.productImage} className="img-fluid" alt="Product" />
+              <img src={`${process.env.PUBLIC_URL}/images/${product.productImage}`} className="img-fluid" alt="Product" />
             </div>
           </div>
           <div className="col-md-12 col-lg-6">
