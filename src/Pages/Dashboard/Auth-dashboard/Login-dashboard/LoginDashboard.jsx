@@ -33,7 +33,7 @@ const LoginDashboard = () => {
   // Function to handle form submission
   const onSubmit = async (data) => {
     try {
-      const response = await axios.get("http://localhost:3001/dashboardUsers");
+      const response = await axios.get("https://veil-flicker-piano.glitch.me/dashboardUsers");
       const users = response.data;
       const userFound = users.find((user) => user.name === data.name && user.password === data.password);
       if (userFound) {
