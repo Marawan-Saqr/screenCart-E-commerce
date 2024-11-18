@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const websiteQuery = createApi({
   reducerPath: 'websiteQuery',
-  baseQuery: fetchBaseQuery({ baseUrl: "https://loud-polished-grouse.glitch.me" }), // Replace localhost with Glitch URL
+  baseQuery: fetchBaseQuery({ baseUrl: "https://veil-flicker-piano.glitch.me" }), // Replace localhost with Glitch URL
   endpoints: (builder) => ({
     getAllProducts: builder.query({
       query: () => '/products',
