@@ -16,7 +16,7 @@ const Users = () => {
   // Get All Users
   const getAllUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/dashboardUsers");
+      const response = await axios.get("https://veil-flicker-piano.glitch.me/dashboardUsers");
       setUsers(response.data);
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -55,7 +55,7 @@ const Users = () => {
       });
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:3001/dashboardUsers/${id}`);
+          await axios.delete(`https://veil-flicker-piano.glitch.me/dashboardUsers/${id}`);
           setUsers(users.filter((user) => user.id !== id));
           await Swal.fire({
             icon: 'success',
