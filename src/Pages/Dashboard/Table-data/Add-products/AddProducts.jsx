@@ -39,7 +39,7 @@ const AddProducts = () => {
 
   // Handle Submit Function
   const onSubmit = async (data) => {
-    await axios.post("http://localhost:3001/products", data);
+    await axios.post("https://veil-flicker-piano.glitch.me/products", data);
     navigate("/dashboard/table-data/products");
   };
 
