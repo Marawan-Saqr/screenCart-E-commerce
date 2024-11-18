@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const websiteQuery = createApi({
   reducerPath: 'websiteQuery',
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://loud-polished-grouse.glitch.me" }), // Replace localhost with Glitch URL
   endpoints: (builder) => ({
     getAllProducts: builder.query({
       query: () => '/products',
@@ -17,7 +17,6 @@ export const websiteQuery = createApi({
         body: userData,
       }),
     }),
-    // Add the loginUser mutation
     loginUser: builder.mutation({
       query: (credentials) => ({
         url: '/websiteUsers',
