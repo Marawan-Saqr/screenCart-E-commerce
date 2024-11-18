@@ -32,7 +32,7 @@ const AddUser = () => {
   // Handle Submit Function
   const onSubmit = async (data) => {
     try {
-      await axios.post("http://localhost:3001/dashboardUsers", data);
+      await axios.post("https://veil-flicker-piano.glitch.me/dashboardUsers", data);
       // Show success alert
       await Swal.fire({
         icon: 'success',
