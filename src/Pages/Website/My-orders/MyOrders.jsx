@@ -47,7 +47,7 @@ const MyOrders = () => {
                                 <Col md={4}>
                                   <Card.Img
                                     variant="top"
-                                    src={`https://veil-flicker-piano.glitch.me/images/${product.productImage}`}
+                                    src={`${process.env.PUBLIC_URL}/images/${product.productImage}`}
                                     className="img-fluid"
                                     alt={product.name}
                                     style={{ width: "100%", height: "auto" }}
