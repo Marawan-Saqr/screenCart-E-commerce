@@ -108,7 +108,7 @@ const Products = () => {
                   <td>{product.category}</td>
                   <td>{product.rate}</td>
                   <td>
-                    <img src={"https://veil-flicker-piano.glitch.me/images/" + product.productImage} alt={product.name} style={{ width: "50px", height: "50px" }} />
+                    <img src={`${process.env.PUBLIC_URL}/images/${product.productImage}`} alt={product.name} style={{ width: "50px", height: "50px" }} />
                   </td>
                   <td>
                     <Link style={{ color: '#fff', textDecoration: 'none' }} to={`/dashboard/table-data/product-details/${product.id}`}>
