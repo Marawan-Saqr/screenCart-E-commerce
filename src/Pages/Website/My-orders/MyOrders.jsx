@@ -48,7 +48,7 @@ const MyOrders = () => {
                                   <Card.Img
                                     variant="top"
                                     src={
-                                      "http://localhost:3001/images/" +
+                                      "https://veil-flicker-piano.glitch.me/images/" +
                                       product.productImage
                                     }
                                     className="img-fluid"
