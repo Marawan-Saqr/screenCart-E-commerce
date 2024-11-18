@@ -13,7 +13,7 @@ const ProductDetailsDash = () => {
   // Get Product Details Function
   const getProductDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/products/${PRODUCTID}`);
+      const response = await axios.get(`https://veil-flicker-piano.glitch.me/products/${PRODUCTID}`);
       setProduct(response.data);
     } catch (error) {
       console.error('Error fetching product details:', error);
