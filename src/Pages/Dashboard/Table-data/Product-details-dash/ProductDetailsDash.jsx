@@ -38,7 +38,7 @@ const ProductDetailsDash = () => {
             {product ? (
               <div className="product-info">
                 <img
-                  src={`http://localhost:3001/images/${product.productImage}`}
+                  src={`https://veil-flicker-piano.glitch.me/images/${product.productImage}`}
                   alt="product"
                   className="img-fluid"
                 />
