@@ -35,7 +35,7 @@ const UpdateUser = () => {
   // Handle Submit Function
   const onSubmit = async (data) => {
     try {
-      await axios.put(`http://localhost:3001/dashboardUsers/${state.id}`, data);
+      await axios.put(`https://veil-flicker-piano.glitch.me/dashboardUsers/${state.id}`, data);
       await Swal.fire({
         icon: 'success',
         title: 'User Updated!',
