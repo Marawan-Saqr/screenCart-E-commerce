@@ -16,7 +16,7 @@ const Products = () => {
   // Get All Products
   const getAllProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/products");
+      const response = await axios.get("https://veil-flicker-piano.glitch.me//products");
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -46,7 +46,7 @@ const Products = () => {
     });
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:3001/products/${productId}`);
+        await axios.delete(`https://veil-flicker-piano.glitch.me/${productId}`);
         setProducts(products.filter(product => product.id !== productId));
         await Swal.fire({
           icon: 'success',
@@ -108,7 +108,7 @@ const Products = () => {
                   <td>{product.category}</td>
                   <td>{product.rate}</td>
                   <td>
-                    <img src={"http://localhost:3001/images/" + product.productImage} alt={product.name} style={{ width: "50px", height: "50px" }} />
+                    <img src={"https://veil-flicker-piano.glitch.me/images/" + product.productImage} alt={product.name} style={{ width: "50px", height: "50px" }} />
                   </td>
                   <td>
                     <Link style={{ color: '#fff', textDecoration: 'none' }} to={`/dashboard/table-data/product-details/${product.id}`}>
