@@ -87,7 +87,7 @@ const GetByCategory = () => {
           {products.map((product) => (
             <div key={product.id} className="col-md-6 col-lg-4 col-xl-3">
               <div className="box">
-                <img src={"https://veil-flicker-piano.glitch.me/images/" + product.productImage} className="img-fluid" alt="Product" />
+                <img src={`${process.env.PUBLIC_URL}/images/${product.productImage}`} className="img-fluid" alt="Product" />
                 <div className="content text-center">
                   <p style={{ color: '#8D99AE', textTransform: 'uppercase', fontSize: '12px', margin: '0px' }}>Category: {product.category}</p>
                   <h3 style={{ fontSize: '17px', textTransform: 'uppercase', fontWeight: 'bold', margin: '10px 0px' }}>{product.name}</h3>
